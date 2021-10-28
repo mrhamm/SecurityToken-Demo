@@ -196,11 +196,11 @@ class Exchange extends Component {
                 <div className="column">
                     <b><u>Exchange Pair Info</u></b>
                     <br/>
-                    BSIS Tokens: {this.state.poolBalance1}
+                    CO Tokens: {this.state.poolBalance1}
                     <br/>
                     HAMM Tokens: {this.state.poolBalance2}
                     <br/>
-                    BSIS-HAMM Price: {this.state.poolBalance2/this.state.poolBalance1}
+                    CO-HAMM Price: {this.state.poolBalance2/this.state.poolBalance1}
         
                 </div>
                 <div className="column">
@@ -225,7 +225,7 @@ class Exchange extends Component {
                  <br />
                   {connectionMessage}
                   <br/>
-                  BSIS Token Balance: {this.state.balance1}
+                  CO Token Balance: {this.state.balance1}
                   <br/>
                   HAMM Token Balance: {this.state.balance2}
                   <br/>
@@ -236,7 +236,7 @@ class Exchange extends Component {
                 <div style={{textAlign:'left'}}>
                 <br/>
                 <br/> 
-                <b><u>Swap BSIS-HAMM (Buy BSIS)</u></b>
+                <b><u>Swap CO-HAMM (Buy BSIS)</u></b>
                <br/>
                <form onSubmit={this.buyBSIS} id="buyBSI">
                     <label>Amount</label><br/>
@@ -244,7 +244,7 @@ class Exchange extends Component {
                     <button type = "submit" form = "buyBSI">Send</button>
                 </form>
                 <br/>
-                <b><u>Swap HAMM-BSIS (Buy HAMM)</u></b>
+                <b><u>Swap HAMM-CO (Buy HAMM)</u></b>
                 <br/>
                <form onSubmit={this.buyHAMM} id = "buyHamm">
                     <label>Amount</label><br/>
