@@ -1,0 +1,7342 @@
+{
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "callerAddress",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "customer",
+          "type": "address"
+        }
+      ],
+      "name": "GetKYCEvent",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "bool",
+          "name": "isKYC",
+          "type": "bool"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "callerAddress",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "customer",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "customerId",
+          "type": "uint256"
+        }
+      ],
+      "name": "SetKYCEvent",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_customer",
+          "type": "address"
+        }
+      ],
+      "name": "getKYC",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bool",
+          "name": "_isKYC",
+          "type": "bool"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_customerId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "_callerAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_id",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "_customer",
+          "type": "address"
+        }
+      ],
+      "name": "setKYC",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "allSourcePaths": {
+    "10": "contracts/CallerInterface.sol",
+    "14": "contracts/Oracle.sol",
+    "2": "/Users/b.hamm/.brownie/packages/OpenZeppelin/openzeppelin-contracts@4.3.0/contracts/access/Ownable.sol",
+    "4": "/Users/b.hamm/.brownie/packages/OpenZeppelin/openzeppelin-contracts@4.3.0/contracts/utils/Context.sol"
+  },
+  "ast": {
+    "absolutePath": "contracts/Oracle.sol",
+    "exportedSymbols": {
+      "CallerInterface": [
+        265
+      ],
+      "Context": [
+        3484
+      ],
+      "KYCOracle": [
+        2538
+      ],
+      "Ownable": [
+        2652
+      ]
+    },
+    "id": 2539,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 2408,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:14"
+      },
+      {
+        "absolutePath": "/Users/b.hamm/.brownie/packages/OpenZeppelin/openzeppelin-contracts@4.3.0/contracts/access/Ownable.sol",
+        "file": "OpenZeppelin/openzeppelin-contracts@4.3.0/contracts/access/Ownable.sol",
+        "id": 2409,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 2539,
+        "sourceUnit": 2653,
+        "src": "25:80:14",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "contracts/CallerInterface.sol",
+        "file": "./CallerInterface.sol",
+        "id": 2410,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 2539,
+        "sourceUnit": 266,
+        "src": "106:31:14",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 2411,
+              "name": "Ownable",
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 2652,
+              "src": "161:7:14"
+            },
+            "id": 2412,
+            "nodeType": "InheritanceSpecifier",
+            "src": "161:7:14"
+          }
+        ],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 2538,
+        "linearizedBaseContracts": [
+          2538,
+          2652,
+          3484
+        ],
+        "name": "KYCOracle",
+        "nameLocation": "148:9:14",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 2415,
+            "mutability": "mutable",
+            "name": "randNonce",
+            "nameLocation": "188:9:14",
+            "nodeType": "VariableDeclaration",
+            "scope": 2538,
+            "src": "175:26:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 2413,
+              "name": "uint",
+              "nodeType": "ElementaryTypeName",
+              "src": "175:4:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": {
+              "hexValue": "30",
+              "id": 2414,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "200:1:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_0_by_1",
+                "typeString": "int_const 0"
+              },
+              "value": "0"
+            },
+            "visibility": "private"
+          },
+          {
+            "constant": false,
+            "id": 2418,
+            "mutability": "mutable",
+            "name": "modulus",
+            "nameLocation": "220:7:14",
+            "nodeType": "VariableDeclaration",
+            "scope": 2538,
+            "src": "207:27:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 2416,
+              "name": "uint",
+              "nodeType": "ElementaryTypeName",
+              "src": "207:4:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": {
+              "hexValue": "31303030",
+              "id": 2417,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "230:4:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_1000_by_1",
+                "typeString": "int_const 1000"
+              },
+              "value": "1000"
+            },
+            "visibility": "private"
+          },
+          {
+            "constant": false,
+            "id": 2422,
+            "mutability": "mutable",
+            "name": "pendingRequests",
+            "nameLocation": "263:15:14",
+            "nodeType": "VariableDeclaration",
+            "scope": 2538,
+            "src": "240:38:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_bool_$",
+              "typeString": "mapping(uint256 => bool)"
+            },
+            "typeName": {
+              "id": 2421,
+              "keyType": {
+                "id": 2419,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "248:7:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "240:22:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_bool_$",
+                "typeString": "mapping(uint256 => bool)"
+              },
+              "valueType": {
+                "id": 2420,
+                "name": "bool",
+                "nodeType": "ElementaryTypeName",
+                "src": "257:4:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                }
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "anonymous": false,
+            "id": 2430,
+            "name": "GetKYCEvent",
+            "nameLocation": "295:11:14",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 2429,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2424,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "callerAddress",
+                  "nameLocation": "315:13:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2430,
+                  "src": "307:21:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2423,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "307:7:14",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2426,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "id",
+                  "nameLocation": "335:2:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2430,
+                  "src": "330:7:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2425,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "330:4:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2428,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "customer",
+                  "nameLocation": "347:8:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2430,
+                  "src": "339:16:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2427,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "339:7:14",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "306:50:14"
+            },
+            "src": "289:68:14"
+          },
+          {
+            "anonymous": false,
+            "id": 2440,
+            "name": "SetKYCEvent",
+            "nameLocation": "368:11:14",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 2439,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2432,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "isKYC",
+                  "nameLocation": "385:5:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2440,
+                  "src": "380:10:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 2431,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "380:4:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2434,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "callerAddress",
+                  "nameLocation": "400:13:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2440,
+                  "src": "392:21:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2433,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "392:7:14",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2436,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "customer",
+                  "nameLocation": "423:8:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2440,
+                  "src": "415:16:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2435,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "415:7:14",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2438,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "customerId",
+                  "nameLocation": "441:10:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2440,
+                  "src": "433:18:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2437,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "433:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "379:73:14"
+            },
+            "src": "362:91:14"
+          },
+          {
+            "body": {
+              "id": 2483,
+              "nodeType": "Block",
+              "src": "519:239:14",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 2448,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "UnaryOperation",
+                    "operator": "++",
+                    "prefix": false,
+                    "src": "529:11:14",
+                    "subExpression": {
+                      "id": 2447,
+                      "name": "randNonce",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2415,
+                      "src": "529:9:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 2449,
+                  "nodeType": "ExpressionStatement",
+                  "src": "529:11:14"
+                },
+                {
+                  "assignments": [
+                    2451
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 2451,
+                      "mutability": "mutable",
+                      "name": "id",
+                      "nameLocation": "555:2:14",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 2483,
+                      "src": "550:7:14",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "typeName": {
+                        "id": 2450,
+                        "name": "uint",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "550:4:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 2467,
+                  "initialValue": {
+                    "commonType": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    },
+                    "id": 2466,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "arguments": [
+                        {
+                          "arguments": [
+                            {
+                              "arguments": [
+                                {
+                                  "expression": {
+                                    "id": 2457,
+                                    "name": "block",
+                                    "nodeType": "Identifier",
+                                    "overloadedDeclarations": [],
+                                    "referencedDeclaration": -4,
+                                    "src": "592:5:14",
+                                    "typeDescriptions": {
+                                      "typeIdentifier": "t_magic_block",
+                                      "typeString": "block"
+                                    }
+                                  },
+                                  "id": 2458,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "memberName": "timestamp",
+                                  "nodeType": "MemberAccess",
+                                  "src": "592:15:14",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_uint256",
+                                    "typeString": "uint256"
+                                  }
+                                },
+                                {
+                                  "expression": {
+                                    "id": 2459,
+                                    "name": "msg",
+                                    "nodeType": "Identifier",
+                                    "overloadedDeclarations": [],
+                                    "referencedDeclaration": -15,
+                                    "src": "609:3:14",
+                                    "typeDescriptions": {
+                                      "typeIdentifier": "t_magic_message",
+                                      "typeString": "msg"
+                                    }
+                                  },
+                                  "id": 2460,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "memberName": "sender",
+                                  "nodeType": "MemberAccess",
+                                  "src": "609:10:14",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_address",
+                                    "typeString": "address"
+                                  }
+                                },
+                                {
+                                  "id": 2461,
+                                  "name": "randNonce",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 2415,
+                                  "src": "620:9:14",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_uint256",
+                                    "typeString": "uint256"
+                                  }
+                                }
+                              ],
+                              "expression": {
+                                "argumentTypes": [
+                                  {
+                                    "typeIdentifier": "t_uint256",
+                                    "typeString": "uint256"
+                                  },
+                                  {
+                                    "typeIdentifier": "t_address",
+                                    "typeString": "address"
+                                  },
+                                  {
+                                    "typeIdentifier": "t_uint256",
+                                    "typeString": "uint256"
+                                  }
+                                ],
+                                "expression": {
+                                  "id": 2455,
+                                  "name": "abi",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": -1,
+                                  "src": "575:3:14",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_magic_abi",
+                                    "typeString": "abi"
+                                  }
+                                },
+                                "id": 2456,
+                                "isConstant": false,
+                                "isLValue": false,
+                                "isPure": true,
+                                "lValueRequested": false,
+                                "memberName": "encodePacked",
+                                "nodeType": "MemberAccess",
+                                "src": "575:16:14",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_function_abiencodepacked_pure$__$returns$_t_bytes_memory_ptr_$",
+                                  "typeString": "function () pure returns (bytes memory)"
+                                }
+                              },
+                              "id": 2462,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "kind": "functionCall",
+                              "lValueRequested": false,
+                              "names": [],
+                              "nodeType": "FunctionCall",
+                              "src": "575:55:14",
+                              "tryCall": false,
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_bytes_memory_ptr",
+                                "typeString": "bytes memory"
+                              }
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_bytes_memory_ptr",
+                                "typeString": "bytes memory"
+                              }
+                            ],
+                            "id": 2454,
+                            "name": "keccak256",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": -8,
+                            "src": "565:9:14",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
+                              "typeString": "function (bytes memory) pure returns (bytes32)"
+                            }
+                          },
+                          "id": 2463,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "565:66:14",
+                          "tryCall": false,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes32",
+                            "typeString": "bytes32"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_bytes32",
+                            "typeString": "bytes32"
+                          }
+                        ],
+                        "id": 2453,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "lValueRequested": false,
+                        "nodeType": "ElementaryTypeNameExpression",
+                        "src": "560:4:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_uint256_$",
+                          "typeString": "type(uint256)"
+                        },
+                        "typeName": {
+                          "id": 2452,
+                          "name": "uint",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "560:4:14",
+                          "typeDescriptions": {}
+                        }
+                      },
+                      "id": 2464,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "560:72:14",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "%",
+                    "rightExpression": {
+                      "id": 2465,
+                      "name": "modulus",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2418,
+                      "src": "635:7:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "560:82:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "550:92:14"
+                },
+                {
+                  "expression": {
+                    "id": 2472,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "baseExpression": {
+                        "id": 2468,
+                        "name": "pendingRequests",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2422,
+                        "src": "653:15:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_uint256_$_t_bool_$",
+                          "typeString": "mapping(uint256 => bool)"
+                        }
+                      },
+                      "id": 2470,
+                      "indexExpression": {
+                        "id": 2469,
+                        "name": "id",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2451,
+                        "src": "669:2:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "653:19:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "hexValue": "74727565",
+                      "id": 2471,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "bool",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "675:4:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "value": "true"
+                    },
+                    "src": "653:26:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 2473,
+                  "nodeType": "ExpressionStatement",
+                  "src": "653:26:14"
+                },
+                {
+                  "eventCall": {
+                    "arguments": [
+                      {
+                        "expression": {
+                          "id": 2475,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": -15,
+                          "src": "706:3:14",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 2476,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "src": "706:10:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "id": 2477,
+                        "name": "id",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2451,
+                        "src": "718:2:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "id": 2478,
+                        "name": "_customer",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2442,
+                        "src": "722:9:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "id": 2474,
+                      "name": "GetKYCEvent",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2430,
+                      "src": "694:11:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_uint256_$_t_address_$returns$__$",
+                        "typeString": "function (address,uint256,address)"
+                      }
+                    },
+                    "id": 2479,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "694:38:14",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 2480,
+                  "nodeType": "EmitStatement",
+                  "src": "689:43:14"
+                },
+                {
+                  "expression": {
+                    "id": 2481,
+                    "name": "id",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 2451,
+                    "src": "749:2:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 2446,
+                  "id": 2482,
+                  "nodeType": "Return",
+                  "src": "742:9:14"
+                }
+              ]
+            },
+            "functionSelector": "4d1a687d",
+            "id": 2484,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getKYC",
+            "nameLocation": "468:6:14",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2443,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2442,
+                  "mutability": "mutable",
+                  "name": "_customer",
+                  "nameLocation": "483:9:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2484,
+                  "src": "475:17:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2441,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "475:7:14",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "474:19:14"
+            },
+            "returnParameters": {
+              "id": 2446,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2445,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2484,
+                  "src": "510:7:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2444,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "510:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "509:9:14"
+            },
+            "scope": 2538,
+            "src": "459:299:14",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 2536,
+              "nodeType": "Block",
+              "src": "887:326:14",
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "baseExpression": {
+                          "id": 2500,
+                          "name": "pendingRequests",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 2422,
+                          "src": "905:15:14",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_uint256_$_t_bool_$",
+                            "typeString": "mapping(uint256 => bool)"
+                          }
+                        },
+                        "id": 2502,
+                        "indexExpression": {
+                          "id": 2501,
+                          "name": "_id",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 2492,
+                          "src": "921:3:14",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "905:20:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 2499,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        -18,
+                        -18
+                      ],
+                      "referencedDeclaration": -18,
+                      "src": "897:7:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 2503,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "897:29:14",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 2504,
+                  "nodeType": "ExpressionStatement",
+                  "src": "897:29:14"
+                },
+                {
+                  "expression": {
+                    "id": 2508,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "UnaryOperation",
+                    "operator": "delete",
+                    "prefix": true,
+                    "src": "936:27:14",
+                    "subExpression": {
+                      "baseExpression": {
+                        "id": 2505,
+                        "name": "pendingRequests",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2422,
+                        "src": "943:15:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_uint256_$_t_bool_$",
+                          "typeString": "mapping(uint256 => bool)"
+                        }
+                      },
+                      "id": 2507,
+                      "indexExpression": {
+                        "id": 2506,
+                        "name": "_id",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2492,
+                        "src": "959:3:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "943:20:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 2509,
+                  "nodeType": "ExpressionStatement",
+                  "src": "936:27:14"
+                },
+                {
+                  "assignments": [
+                    2512
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 2512,
+                      "mutability": "mutable",
+                      "name": "callerInstance",
+                      "nameLocation": "989:14:14",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 2536,
+                      "src": "973:30:14",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_CallerInterface_$265",
+                        "typeString": "contract CallerInterface"
+                      },
+                      "typeName": {
+                        "id": 2511,
+                        "nodeType": "UserDefinedTypeName",
+                        "pathNode": {
+                          "id": 2510,
+                          "name": "CallerInterface",
+                          "nodeType": "IdentifierPath",
+                          "referencedDeclaration": 265,
+                          "src": "973:15:14"
+                        },
+                        "referencedDeclaration": 265,
+                        "src": "973:15:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_CallerInterface_$265",
+                          "typeString": "contract CallerInterface"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 2513,
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "973:30:14"
+                },
+                {
+                  "expression": {
+                    "id": 2518,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 2514,
+                      "name": "callerInstance",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2512,
+                      "src": "1013:14:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_CallerInterface_$265",
+                        "typeString": "contract CallerInterface"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "arguments": [
+                        {
+                          "id": 2516,
+                          "name": "_callerAddress",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 2490,
+                          "src": "1046:14:14",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        ],
+                        "id": 2515,
+                        "name": "CallerInterface",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 265,
+                        "src": "1030:15:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_CallerInterface_$265_$",
+                          "typeString": "type(contract CallerInterface)"
+                        }
+                      },
+                      "id": 2517,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "1030:31:14",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_CallerInterface_$265",
+                        "typeString": "contract CallerInterface"
+                      }
+                    },
+                    "src": "1013:48:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_CallerInterface_$265",
+                      "typeString": "contract CallerInterface"
+                    }
+                  },
+                  "id": 2519,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1013:48:14"
+                },
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "id": 2523,
+                        "name": "_customerId",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2488,
+                        "src": "1095:11:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "id": 2524,
+                        "name": "_isKYC",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2486,
+                        "src": "1108:6:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "id": 2525,
+                        "name": "_customer",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2494,
+                        "src": "1116:9:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "id": 2526,
+                        "name": "_id",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2492,
+                        "src": "1128:3:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "expression": {
+                        "id": 2520,
+                        "name": "callerInstance",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2512,
+                        "src": "1071:14:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_CallerInterface_$265",
+                          "typeString": "contract CallerInterface"
+                        }
+                      },
+                      "id": 2522,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "callback",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 257,
+                      "src": "1071:23:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_nonpayable$_t_uint256_$_t_bool_$_t_address_$_t_uint256_$returns$__$",
+                        "typeString": "function (uint256,bool,address,uint256) external"
+                      }
+                    },
+                    "id": 2527,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1071:61:14",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 2528,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1071:61:14"
+                },
+                {
+                  "eventCall": {
+                    "arguments": [
+                      {
+                        "id": 2530,
+                        "name": "_isKYC",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2486,
+                        "src": "1159:6:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "id": 2531,
+                        "name": "_callerAddress",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2490,
+                        "src": "1167:14:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "id": 2532,
+                        "name": "_customer",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2494,
+                        "src": "1183:9:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "id": 2533,
+                        "name": "_customerId",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2488,
+                        "src": "1194:11:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 2529,
+                      "name": "SetKYCEvent",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2440,
+                      "src": "1147:11:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_bool_$_t_address_$_t_address_$_t_uint256_$returns$__$",
+                        "typeString": "function (bool,address,address,uint256)"
+                      }
+                    },
+                    "id": 2534,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1147:59:14",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 2535,
+                  "nodeType": "EmitStatement",
+                  "src": "1142:64:14"
+                }
+              ]
+            },
+            "functionSelector": "f6cfe581",
+            "id": 2537,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "id": 2497,
+                "kind": "modifierInvocation",
+                "modifierName": {
+                  "id": 2496,
+                  "name": "onlyOwner",
+                  "nodeType": "IdentifierPath",
+                  "referencedDeclaration": 2595,
+                  "src": "877:9:14"
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "877:9:14"
+              }
+            ],
+            "name": "setKYC",
+            "nameLocation": "773:6:14",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2495,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2486,
+                  "mutability": "mutable",
+                  "name": "_isKYC",
+                  "nameLocation": "785:6:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2537,
+                  "src": "780:11:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 2485,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "780:4:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2488,
+                  "mutability": "mutable",
+                  "name": "_customerId",
+                  "nameLocation": "801:11:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2537,
+                  "src": "793:19:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2487,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "793:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2490,
+                  "mutability": "mutable",
+                  "name": "_callerAddress",
+                  "nameLocation": "822:14:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2537,
+                  "src": "814:22:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2489,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "814:7:14",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2492,
+                  "mutability": "mutable",
+                  "name": "_id",
+                  "nameLocation": "846:3:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2537,
+                  "src": "838:11:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2491,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "838:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2494,
+                  "mutability": "mutable",
+                  "name": "_customer",
+                  "nameLocation": "859:9:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2537,
+                  "src": "851:17:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2493,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "851:7:14",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "779:90:14"
+            },
+            "returnParameters": {
+              "id": 2498,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "887:0:14"
+            },
+            "scope": 2538,
+            "src": "764:449:14",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "scope": 2539,
+        "src": "139:1076:14",
+        "usedErrors": []
+      }
+    ],
+    "src": "0:1215:14"
+  },
+  "bytecode": "608060405260006001556103e860025534801561001b57600080fd5b506100253361002a565b61007a565b600080546001600160a01b038381166001600160a01b0319831681178455604051919092169283917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e09190a35050565b61055a806100896000396000f3fe608060405234801561001057600080fd5b50600436106100575760003560e01c80634d1a687d1461005c578063715018a6146100825780638da5cb5b1461008c578063f2fde38b146100a7578063f6cfe581146100ba575b600080fd5b61006f61006a366004610424565b6100cd565b6040519081526020015b60405180910390f35b61008a6101b4565b005b6000546040516001600160a01b039091168152602001610079565b61008a6100b5366004610424565b6101f3565b61008a6100c8366004610446565b61028e565b60018054600091826100de836104d9565b9190505550600060025442336001546040516020016101229392919092835260609190911b6bffffffffffffffffffffffff19166020830152603482015260540190565b6040516020818303038152906040528051906020012060001c6101459190610502565b600081815260036020908152604091829020805460ff1916600117905581513381529081018390526001600160a01b038616918101919091529091507f2f11752a78f42d29f99212b37fa1798c30e13941d158100c1a72f3de3b82afeb9060600160405180910390a192915050565b6000546001600160a01b031633146101e75760405162461bcd60e51b81526004016101de906104a4565b60405180910390fd5b6101f160006103b8565b565b6000546001600160a01b0316331461021d5760405162461bcd60e51b81526004016101de906104a4565b6001600160a01b0381166102825760405162461bcd60e51b815260206004820152602660248201527f4f776e61626c653a206e6577206f776e657220697320746865207a65726f206160448201526564647265737360d01b60648201526084016101de565b61028b816103b8565b50565b6000546001600160a01b031633146102b85760405162461bcd60e51b81526004016101de906104a4565b60008281526003602052604090205460ff166102d357600080fd5b60008281526003602052604090819020805460ff1916905551630377be6b60e61b81526004810185905285151560248201526001600160a01b0382811660448301526064820184905284919082169063ddef9ac090608401600060405180830381600087803b15801561034557600080fd5b505af1158015610359573d6000803e3d6000fd5b50506040805189151581526001600160a01b0388811660208301528616818301526060810189905290517f0453f80d195908f6ad58e9a5122d5c46e7bef1167ec036d8b7d602292e2b8f779350908190036080019150a1505050505050565b600080546001600160a01b038381166001600160a01b0319831681178455604051919092169283917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e09190a35050565b80356001600160a01b038116811461041f57600080fd5b919050565b60006020828403121561043657600080fd5b61043f82610408565b9392505050565b600080600080600060a0868803121561045e57600080fd5b8535801515811461046e57600080fd5b94506020860135935061048360408701610408565b92506060860135915061049860808701610408565b90509295509295909350565b6020808252818101527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604082015260600190565b60006000198214156104fb57634e487b7160e01b600052601160045260246000fd5b5060010190565b60008261051f57634e487b7160e01b600052601260045260246000fd5b50069056fea2646970667358221220ae93546747333a49d0183f007c57ab09f102702ccf10652d761f9b2fc0b5e0da64736f6c63430008070033",
+  "bytecodeSha1": "510e348214299b2055020d342577045f53ab8415",
+  "compiler": {
+    "evm_version": "istanbul",
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "version": "0.8.7+commit.e28d00a7"
+  },
+  "contractName": "KYCOracle",
+  "coverageMap": {
+    "branches": {
+      "10": {},
+      "14": {
+        "KYCOracle.setKYC": {
+          "16": [
+            905,
+            925,
+            true
+          ]
+        }
+      },
+      "2": {
+        "Ownable.transferOwnership": {
+          "17": [
+            1934,
+            1956,
+            true
+          ]
+        }
+      },
+      "4": {}
+    },
+    "statements": {
+      "10": {},
+      "14": {
+        "KYCOracle.getKYC": {
+          "1": [
+            529,
+            540
+          ],
+          "2": [
+            653,
+            679
+          ],
+          "3": [
+            689,
+            732
+          ],
+          "4": [
+            742,
+            751
+          ]
+        },
+        "KYCOracle.setKYC": {
+          "9": [
+            897,
+            926
+          ],
+          "10": [
+            936,
+            963
+          ],
+          "11": [
+            1071,
+            1132
+          ],
+          "12": [
+            1013,
+            1061
+          ],
+          "13": [
+            1142,
+            1206
+          ]
+        }
+      },
+      "2": {
+        "Ownable._setOwner": {
+          "14": [
+            2131,
+            2148
+          ],
+          "15": [
+            2158,
+            2203
+          ]
+        },
+        "Ownable.owner": {
+          "0": [
+            1038,
+            1051
+          ]
+        },
+        "Ownable.renounceOwnership": {
+          "6": [
+            1669,
+            1690
+          ]
+        },
+        "Ownable.transferOwnership": {
+          "7": [
+            1926,
+            1999
+          ],
+          "8": [
+            2009,
+            2028
+          ]
+        }
+      },
+      "4": {
+        "Context._msgSender": {
+          "5": [
+            659,
+            676
+          ]
+        }
+      }
+    }
+  },
+  "dependencies": [
+    "CallerInterface",
+    "OpenZeppelin/openzeppelin-contracts@4.3.0/Context",
+    "OpenZeppelin/openzeppelin-contracts@4.3.0/Ownable"
+  ],
+  "deployedBytecode": "608060405234801561001057600080fd5b50600436106100575760003560e01c80634d1a687d1461005c578063715018a6146100825780638da5cb5b1461008c578063f2fde38b146100a7578063f6cfe581146100ba575b600080fd5b61006f61006a366004610424565b6100cd565b6040519081526020015b60405180910390f35b61008a6101b4565b005b6000546040516001600160a01b039091168152602001610079565b61008a6100b5366004610424565b6101f3565b61008a6100c8366004610446565b61028e565b60018054600091826100de836104d9565b9190505550600060025442336001546040516020016101229392919092835260609190911b6bffffffffffffffffffffffff19166020830152603482015260540190565b6040516020818303038152906040528051906020012060001c6101459190610502565b600081815260036020908152604091829020805460ff1916600117905581513381529081018390526001600160a01b038616918101919091529091507f2f11752a78f42d29f99212b37fa1798c30e13941d158100c1a72f3de3b82afeb9060600160405180910390a192915050565b6000546001600160a01b031633146101e75760405162461bcd60e51b81526004016101de906104a4565b60405180910390fd5b6101f160006103b8565b565b6000546001600160a01b0316331461021d5760405162461bcd60e51b81526004016101de906104a4565b6001600160a01b0381166102825760405162461bcd60e51b815260206004820152602660248201527f4f776e61626c653a206e6577206f776e657220697320746865207a65726f206160448201526564647265737360d01b60648201526084016101de565b61028b816103b8565b50565b6000546001600160a01b031633146102b85760405162461bcd60e51b81526004016101de906104a4565b60008281526003602052604090205460ff166102d357600080fd5b60008281526003602052604090819020805460ff1916905551630377be6b60e61b81526004810185905285151560248201526001600160a01b0382811660448301526064820184905284919082169063ddef9ac090608401600060405180830381600087803b15801561034557600080fd5b505af1158015610359573d6000803e3d6000fd5b50506040805189151581526001600160a01b0388811660208301528616818301526060810189905290517f0453f80d195908f6ad58e9a5122d5c46e7bef1167ec036d8b7d602292e2b8f779350908190036080019150a1505050505050565b600080546001600160a01b038381166001600160a01b0319831681178455604051919092169283917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e09190a35050565b80356001600160a01b038116811461041f57600080fd5b919050565b60006020828403121561043657600080fd5b61043f82610408565b9392505050565b600080600080600060a0868803121561045e57600080fd5b8535801515811461046e57600080fd5b94506020860135935061048360408701610408565b92506060860135915061049860808701610408565b90509295509295909350565b6020808252818101527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604082015260600190565b60006000198214156104fb57634e487b7160e01b600052601160045260246000fd5b5060010190565b60008261051f57634e487b7160e01b600052601260045260246000fd5b50069056fea2646970667358221220ae93546747333a49d0183f007c57ab09f102702ccf10652d761f9b2fc0b5e0da64736f6c63430008070033",
+  "deployedSourceMap": "139:1076:14:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;459:299;;;;;;:::i;:::-;;:::i;:::-;;;3275:25:16;;;3263:2;3248:18;459:299:14;;;;;;;;1605:92:2;;;:::i;:::-;;973:85;1019:7;1045:6;973:85;;-1:-1:-1;;;;;1045:6:2;;;1457:51:16;;1445:2;1430:18;973:85:2;1311:203:16;1846:189:2;;;;;;:::i;:::-;;:::i;764:449:14:-;;;;;;:::i;:::-;;:::i;459:299::-;529:9;:11;;510:7;;;529:11;;;:::i;:::-;;;;;;550:7;635;;592:15;609:10;620:9;;575:55;;;;;;;;;1132:19:16;;;1189:2;1185:15;;;;-1:-1:-1;;1181:53:16;1176:2;1167:12;;1160:75;1260:2;1251:12;;1244:28;1297:2;1288:12;;947:359;575:55:14;;;;;;;;;;;;;565:66;;;;;;560:72;;:82;;;;:::i;:::-;653:19;;;;:15;:19;;;;;;;;;:26;;-1:-1:-1;;653:26:14;675:4;653:26;;;694:38;;706:10;1759:34:16;;1809:18;;;1802:34;;;-1:-1:-1;;;;;1872:15:16;;1852:18;;;1845:43;;;;653:19:14;;-1:-1:-1;694:38:14;;1709:2:16;1694:18;694:38:14;;;;;;;749:2;459:299;-1:-1:-1;;459:299:14:o;1605:92:2:-;1019:7;1045:6;-1:-1:-1;;;;;1045:6:2;666:10:4;1185:23:2;1177:68;;;;-1:-1:-1;;;1177:68:2;;;;;;;:::i;:::-;;;;;;;;;1669:21:::1;1687:1;1669:9;:21::i;:::-;1605:92::o:0;1846:189::-;1019:7;1045:6;-1:-1:-1;;;;;1045:6:2;666:10:4;1185:23:2;1177:68;;;;-1:-1:-1;;;1177:68:2;;;;;;;:::i;:::-;-1:-1:-1;;;;;1934:22:2;::::1;1926:73;;;::::0;-1:-1:-1;;;1926:73:2;;2563:2:16;1926:73:2::1;::::0;::::1;2545:21:16::0;2602:2;2582:18;;;2575:30;2641:34;2621:18;;;2614:62;-1:-1:-1;;;2692:18:16;;;2685:36;2738:19;;1926:73:2::1;2361:402:16::0;1926:73:2::1;2009:19;2019:8;2009:9;:19::i;:::-;1846:189:::0;:::o;764:449:14:-;1019:7:2;1045:6;-1:-1:-1;;;;;1045:6:2;666:10:4;1185:23:2;1177:68;;;;-1:-1:-1;;;1177:68:2;;;;;;;:::i;:::-;905:20:14::1;::::0;;;:15:::1;:20;::::0;;;;;::::1;;897:29;;;::::0;::::1;;943:20;::::0;;;:15:::1;:20;::::0;;;;;;936:27;;-1:-1:-1;;936:27:14::1;::::0;;1071:61;-1:-1:-1;;;1071:61:14;;::::1;::::0;::::1;3536:25:16::0;;;3604:14;;3597:22;3577:18;;;3570:50;-1:-1:-1;;;;;3656:32:16;;;3636:18;;;3629:60;3705:18;;;3698:34;;;1046:14:14;;1071:23;;::::1;::::0;::::1;::::0;3508:19:16;;1071:61:14::1;;;;;;;;;;;;;;;;;::::0;::::1;;;;;;;;;;;;::::0;::::1;;;;;-1:-1:-1::0;;1147:59:14::1;::::0;;2149:14:16;;2142:22;2124:41;;-1:-1:-1;;;;;2239:15:16;;;2234:2;2219:18;;2212:43;2291:15;;2271:18;;;2264:43;2338:2;2323:18;;2316:34;;;1147:59:14;;::::1;::::0;-1:-1:-1;1147:59:14;;;;2111:3:16;1147:59:14;;-1:-1:-1;1147:59:14::1;887:326;764:449:::0;;;;;:::o;2041:169:2:-;2096:16;2115:6;;-1:-1:-1;;;;;2131:17:2;;;-1:-1:-1;;;;;;2131:17:2;;;;;;2163:40;;2115:6;;;;;;;2163:40;;2096:16;2163:40;2086:124;2041:169;:::o;14:173:16:-;82:20;;-1:-1:-1;;;;;131:31:16;;121:42;;111:70;;177:1;174;167:12;111:70;14:173;;;:::o;192:186::-;251:6;304:2;292:9;283:7;279:23;275:32;272:52;;;320:1;317;310:12;272:52;343:29;362:9;343:29;:::i;:::-;333:39;192:186;-1:-1:-1;;;192:186:16:o;383:559::-;475:6;483;491;499;507;560:3;548:9;539:7;535:23;531:33;528:53;;;577:1;574;567:12;528:53;616:9;603:23;669:5;662:13;655:21;648:5;645:32;635:60;;691:1;688;681:12;635:60;714:5;-1:-1:-1;766:2:16;751:18;;738:32;;-1:-1:-1;789:38:16;823:2;808:18;;789:38;:::i;:::-;779:48;;874:2;863:9;859:18;846:32;836:42;;897:39;931:3;920:9;916:19;897:39;:::i;:::-;887:49;;383:559;;;;;;;;:::o;2768:356::-;2970:2;2952:21;;;2989:18;;;2982:30;3048:34;3043:2;3028:18;;3021:62;3115:2;3100:18;;2768:356::o;3743:232::-;3782:3;-1:-1:-1;;3803:17:16;;3800:140;;;3862:10;3857:3;3853:20;3850:1;3843:31;3897:4;3894:1;3887:15;3925:4;3922:1;3915:15;3800:140;-1:-1:-1;3967:1:16;3956:13;;3743:232::o;3980:209::-;4012:1;4038;4028:132;;4082:10;4077:3;4073:20;4070:1;4063:31;4117:4;4114:1;4107:15;4145:4;4142:1;4135:15;4028:132;-1:-1:-1;4174:9:16;;3980:209::o",
+  "language": "Solidity",
+  "natspec": {
+    "kind": "dev",
+    "methods": {
+      "owner()": {
+        "details": "Returns the address of the current owner."
+      },
+      "renounceOwnership()": {
+        "details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+      },
+      "transferOwnership(address)": {
+        "details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+      }
+    },
+    "version": 1
+  },
+  "offset": [
+    139,
+    1215
+  ],
+  "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH2 0x10 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x4 CALLDATASIZE LT PUSH2 0x57 JUMPI PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH4 0x4D1A687D EQ PUSH2 0x5C JUMPI DUP1 PUSH4 0x715018A6 EQ PUSH2 0x82 JUMPI DUP1 PUSH4 0x8DA5CB5B EQ PUSH2 0x8C JUMPI DUP1 PUSH4 0xF2FDE38B EQ PUSH2 0xA7 JUMPI DUP1 PUSH4 0xF6CFE581 EQ PUSH2 0xBA JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x6F PUSH2 0x6A CALLDATASIZE PUSH1 0x4 PUSH2 0x424 JUMP JUMPDEST PUSH2 0xCD JUMP JUMPDEST PUSH1 0x40 MLOAD SWAP1 DUP2 MSTORE PUSH1 0x20 ADD JUMPDEST PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 RETURN JUMPDEST PUSH2 0x8A PUSH2 0x1B4 JUMP JUMPDEST STOP JUMPDEST PUSH1 0x0 SLOAD PUSH1 0x40 MLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB SWAP1 SWAP2 AND DUP2 MSTORE PUSH1 0x20 ADD PUSH2 0x79 JUMP JUMPDEST PUSH2 0x8A PUSH2 0xB5 CALLDATASIZE PUSH1 0x4 PUSH2 0x424 JUMP JUMPDEST PUSH2 0x1F3 JUMP JUMPDEST PUSH2 0x8A PUSH2 0xC8 CALLDATASIZE PUSH1 0x4 PUSH2 0x446 JUMP JUMPDEST PUSH2 0x28E JUMP JUMPDEST PUSH1 0x1 DUP1 SLOAD PUSH1 0x0 SWAP2 DUP3 PUSH2 0xDE DUP4 PUSH2 0x4D9 JUMP JUMPDEST SWAP2 SWAP1 POP SSTORE POP PUSH1 0x0 PUSH1 0x2 SLOAD TIMESTAMP CALLER PUSH1 0x1 SLOAD PUSH1 0x40 MLOAD PUSH1 0x20 ADD PUSH2 0x122 SWAP4 SWAP3 SWAP2 SWAP1 SWAP3 DUP4 MSTORE PUSH1 0x60 SWAP2 SWAP1 SWAP2 SHL PUSH12 0xFFFFFFFFFFFFFFFFFFFFFFFF NOT AND PUSH1 0x20 DUP4 ADD MSTORE PUSH1 0x34 DUP3 ADD MSTORE PUSH1 0x54 ADD SWAP1 JUMP JUMPDEST PUSH1 0x40 MLOAD PUSH1 0x20 DUP2 DUP4 SUB SUB DUP2 MSTORE SWAP1 PUSH1 0x40 MSTORE DUP1 MLOAD SWAP1 PUSH1 0x20 ADD KECCAK256 PUSH1 0x0 SHR PUSH2 0x145 SWAP2 SWAP1 PUSH2 0x502 JUMP JUMPDEST PUSH1 0x0 DUP2 DUP2 MSTORE PUSH1 0x3 PUSH1 0x20 SWAP1 DUP2 MSTORE PUSH1 0x40 SWAP2 DUP3 SWAP1 KECCAK256 DUP1 SLOAD PUSH1 0xFF NOT AND PUSH1 0x1 OR SWAP1 SSTORE DUP2 MLOAD CALLER DUP2 MSTORE SWAP1 DUP2 ADD DUP4 SWAP1 MSTORE PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP7 AND SWAP2 DUP2 ADD SWAP2 SWAP1 SWAP2 MSTORE SWAP1 SWAP2 POP PUSH32 0x2F11752A78F42D29F99212B37FA1798C30E13941D158100C1A72F3DE3B82AFEB SWAP1 PUSH1 0x60 ADD PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 LOG1 SWAP3 SWAP2 POP POP JUMP JUMPDEST PUSH1 0x0 SLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND CALLER EQ PUSH2 0x1E7 JUMPI PUSH1 0x40 MLOAD PUSH3 0x461BCD PUSH1 0xE5 SHL DUP2 MSTORE PUSH1 0x4 ADD PUSH2 0x1DE SWAP1 PUSH2 0x4A4 JUMP JUMPDEST PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 REVERT JUMPDEST PUSH2 0x1F1 PUSH1 0x0 PUSH2 0x3B8 JUMP JUMPDEST JUMP JUMPDEST PUSH1 0x0 SLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND CALLER EQ PUSH2 0x21D JUMPI PUSH1 0x40 MLOAD PUSH3 0x461BCD PUSH1 0xE5 SHL DUP2 MSTORE PUSH1 0x4 ADD PUSH2 0x1DE SWAP1 PUSH2 0x4A4 JUMP JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP2 AND PUSH2 0x282 JUMPI PUSH1 0x40 MLOAD PUSH3 0x461BCD PUSH1 0xE5 SHL DUP2 MSTORE PUSH1 0x20 PUSH1 0x4 DUP3 ADD MSTORE PUSH1 0x26 PUSH1 0x24 DUP3 ADD MSTORE PUSH32 0x4F776E61626C653A206E6577206F776E657220697320746865207A65726F2061 PUSH1 0x44 DUP3 ADD MSTORE PUSH6 0x646472657373 PUSH1 0xD0 SHL PUSH1 0x64 DUP3 ADD MSTORE PUSH1 0x84 ADD PUSH2 0x1DE JUMP JUMPDEST PUSH2 0x28B DUP2 PUSH2 0x3B8 JUMP JUMPDEST POP JUMP JUMPDEST PUSH1 0x0 SLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND CALLER EQ PUSH2 0x2B8 JUMPI PUSH1 0x40 MLOAD PUSH3 0x461BCD PUSH1 0xE5 SHL DUP2 MSTORE PUSH1 0x4 ADD PUSH2 0x1DE SWAP1 PUSH2 0x4A4 JUMP JUMPDEST PUSH1 0x0 DUP3 DUP2 MSTORE PUSH1 0x3 PUSH1 0x20 MSTORE PUSH1 0x40 SWAP1 KECCAK256 SLOAD PUSH1 0xFF AND PUSH2 0x2D3 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH1 0x0 DUP3 DUP2 MSTORE PUSH1 0x3 PUSH1 0x20 MSTORE PUSH1 0x40 SWAP1 DUP2 SWAP1 KECCAK256 DUP1 SLOAD PUSH1 0xFF NOT AND SWAP1 SSTORE MLOAD PUSH4 0x377BE6B PUSH1 0xE6 SHL DUP2 MSTORE PUSH1 0x4 DUP2 ADD DUP6 SWAP1 MSTORE DUP6 ISZERO ISZERO PUSH1 0x24 DUP3 ADD MSTORE PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP3 DUP2 AND PUSH1 0x44 DUP4 ADD MSTORE PUSH1 0x64 DUP3 ADD DUP5 SWAP1 MSTORE DUP5 SWAP2 SWAP1 DUP3 AND SWAP1 PUSH4 0xDDEF9AC0 SWAP1 PUSH1 0x84 ADD PUSH1 0x0 PUSH1 0x40 MLOAD DUP1 DUP4 SUB DUP2 PUSH1 0x0 DUP8 DUP1 EXTCODESIZE ISZERO DUP1 ISZERO PUSH2 0x345 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP GAS CALL ISZERO DUP1 ISZERO PUSH2 0x359 JUMPI RETURNDATASIZE PUSH1 0x0 DUP1 RETURNDATACOPY RETURNDATASIZE PUSH1 0x0 REVERT JUMPDEST POP POP PUSH1 0x40 DUP1 MLOAD DUP10 ISZERO ISZERO DUP2 MSTORE PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP9 DUP2 AND PUSH1 0x20 DUP4 ADD MSTORE DUP7 AND DUP2 DUP4 ADD MSTORE PUSH1 0x60 DUP2 ADD DUP10 SWAP1 MSTORE SWAP1 MLOAD PUSH32 0x453F80D195908F6AD58E9A5122D5C46E7BEF1167EC036D8B7D602292E2B8F77 SWAP4 POP SWAP1 DUP2 SWAP1 SUB PUSH1 0x80 ADD SWAP2 POP LOG1 POP POP POP POP POP POP JUMP JUMPDEST PUSH1 0x0 DUP1 SLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP4 DUP2 AND PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB NOT DUP4 AND DUP2 OR DUP5 SSTORE PUSH1 0x40 MLOAD SWAP2 SWAP1 SWAP3 AND SWAP3 DUP4 SWAP2 PUSH32 0x8BE0079C531659141344CD1FD0A4F28419497F9722A3DAAFE3B4186F6B6457E0 SWAP2 SWAP1 LOG3 POP POP JUMP JUMPDEST DUP1 CALLDATALOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP2 AND DUP2 EQ PUSH2 0x41F JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST SWAP2 SWAP1 POP JUMP JUMPDEST PUSH1 0x0 PUSH1 0x20 DUP3 DUP5 SUB SLT ISZERO PUSH2 0x436 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x43F DUP3 PUSH2 0x408 JUMP JUMPDEST SWAP4 SWAP3 POP POP POP JUMP JUMPDEST PUSH1 0x0 DUP1 PUSH1 0x0 DUP1 PUSH1 0x0 PUSH1 0xA0 DUP7 DUP9 SUB SLT ISZERO PUSH2 0x45E JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST DUP6 CALLDATALOAD DUP1 ISZERO ISZERO DUP2 EQ PUSH2 0x46E JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST SWAP5 POP PUSH1 0x20 DUP7 ADD CALLDATALOAD SWAP4 POP PUSH2 0x483 PUSH1 0x40 DUP8 ADD PUSH2 0x408 JUMP JUMPDEST SWAP3 POP PUSH1 0x60 DUP7 ADD CALLDATALOAD SWAP2 POP PUSH2 0x498 PUSH1 0x80 DUP8 ADD PUSH2 0x408 JUMP JUMPDEST SWAP1 POP SWAP3 SWAP6 POP SWAP3 SWAP6 SWAP1 SWAP4 POP JUMP JUMPDEST PUSH1 0x20 DUP1 DUP3 MSTORE DUP2 DUP2 ADD MSTORE PUSH32 0x4F776E61626C653A2063616C6C6572206973206E6F7420746865206F776E6572 PUSH1 0x40 DUP3 ADD MSTORE PUSH1 0x60 ADD SWAP1 JUMP JUMPDEST PUSH1 0x0 PUSH1 0x0 NOT DUP3 EQ ISZERO PUSH2 0x4FB JUMPI PUSH4 0x4E487B71 PUSH1 0xE0 SHL PUSH1 0x0 MSTORE PUSH1 0x11 PUSH1 0x4 MSTORE PUSH1 0x24 PUSH1 0x0 REVERT JUMPDEST POP PUSH1 0x1 ADD SWAP1 JUMP JUMPDEST PUSH1 0x0 DUP3 PUSH2 0x51F JUMPI PUSH4 0x4E487B71 PUSH1 0xE0 SHL PUSH1 0x0 MSTORE PUSH1 0x12 PUSH1 0x4 MSTORE PUSH1 0x24 PUSH1 0x0 REVERT JUMPDEST POP MOD SWAP1 JUMP INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 0xAE SWAP4 SLOAD PUSH8 0x47333A49D0183F00 PUSH29 0x57AB09F102702CCF10652D761F9B2FC0B5E0DA64736F6C634300080700 CALLER ",
+  "pcMap": {
+    "0": {
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x80"
+    },
+    "2": {
+      "fn": null,
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x40"
+    },
+    "4": {
+      "fn": null,
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "MSTORE",
+      "path": "14"
+    },
+    "5": {
+      "fn": null,
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "CALLVALUE",
+      "path": "14"
+    },
+    "6": {
+      "fn": null,
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "DUP1",
+      "path": "14"
+    },
+    "7": {
+      "fn": null,
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "ISZERO",
+      "path": "14"
+    },
+    "8": {
+      "fn": null,
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "PUSH2",
+      "path": "14",
+      "value": "0x10"
+    },
+    "11": {
+      "fn": null,
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "JUMPI",
+      "path": "14"
+    },
+    "12": {
+      "fn": null,
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x0"
+    },
+    "14": {
+      "fn": null,
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "DUP1",
+      "path": "14"
+    },
+    "15": {
+      "dev": "Cannot send ether to nonpayable function",
+      "fn": null,
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "REVERT",
+      "path": "14"
+    },
+    "16": {
+      "fn": null,
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "JUMPDEST",
+      "path": "14"
+    },
+    "17": {
+      "fn": null,
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "POP",
+      "path": "14"
+    },
+    "18": {
+      "fn": null,
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x4"
+    },
+    "20": {
+      "fn": null,
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "CALLDATASIZE",
+      "path": "14"
+    },
+    "21": {
+      "fn": null,
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "LT",
+      "path": "14"
+    },
+    "22": {
+      "fn": null,
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "PUSH2",
+      "path": "14",
+      "value": "0x57"
+    },
+    "25": {
+      "fn": null,
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "JUMPI",
+      "path": "14"
+    },
+    "26": {
+      "fn": null,
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x0"
+    },
+    "28": {
+      "fn": null,
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "CALLDATALOAD",
+      "path": "14"
+    },
+    "29": {
+      "fn": null,
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0xE0"
+    },
+    "31": {
+      "fn": null,
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "SHR",
+      "path": "14"
+    },
+    "32": {
+      "fn": null,
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "DUP1",
+      "path": "14"
+    },
+    "33": {
+      "fn": null,
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "PUSH4",
+      "path": "14",
+      "value": "0x4D1A687D"
+    },
+    "38": {
+      "fn": null,
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "EQ",
+      "path": "14"
+    },
+    "39": {
+      "fn": null,
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "PUSH2",
+      "path": "14",
+      "value": "0x5C"
+    },
+    "42": {
+      "fn": null,
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "JUMPI",
+      "path": "14"
+    },
+    "43": {
+      "fn": null,
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "DUP1",
+      "path": "14"
+    },
+    "44": {
+      "fn": null,
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "PUSH4",
+      "path": "14",
+      "value": "0x715018A6"
+    },
+    "49": {
+      "fn": null,
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "EQ",
+      "path": "14"
+    },
+    "50": {
+      "fn": null,
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "PUSH2",
+      "path": "14",
+      "value": "0x82"
+    },
+    "53": {
+      "fn": null,
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "JUMPI",
+      "path": "14"
+    },
+    "54": {
+      "fn": null,
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "DUP1",
+      "path": "14"
+    },
+    "55": {
+      "fn": null,
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "PUSH4",
+      "path": "14",
+      "value": "0x8DA5CB5B"
+    },
+    "60": {
+      "fn": null,
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "EQ",
+      "path": "14"
+    },
+    "61": {
+      "fn": null,
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "PUSH2",
+      "path": "14",
+      "value": "0x8C"
+    },
+    "64": {
+      "fn": null,
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "JUMPI",
+      "path": "14"
+    },
+    "65": {
+      "fn": null,
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "DUP1",
+      "path": "14"
+    },
+    "66": {
+      "fn": null,
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "PUSH4",
+      "path": "14",
+      "value": "0xF2FDE38B"
+    },
+    "71": {
+      "fn": null,
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "EQ",
+      "path": "14"
+    },
+    "72": {
+      "fn": null,
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "PUSH2",
+      "path": "14",
+      "value": "0xA7"
+    },
+    "75": {
+      "fn": null,
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "JUMPI",
+      "path": "14"
+    },
+    "76": {
+      "fn": null,
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "DUP1",
+      "path": "14"
+    },
+    "77": {
+      "fn": null,
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "PUSH4",
+      "path": "14",
+      "value": "0xF6CFE581"
+    },
+    "82": {
+      "fn": null,
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "EQ",
+      "path": "14"
+    },
+    "83": {
+      "fn": null,
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "PUSH2",
+      "path": "14",
+      "value": "0xBA"
+    },
+    "86": {
+      "fn": null,
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "JUMPI",
+      "path": "14"
+    },
+    "87": {
+      "fn": null,
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "JUMPDEST",
+      "path": "14"
+    },
+    "88": {
+      "fn": null,
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x0"
+    },
+    "90": {
+      "fn": null,
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "DUP1",
+      "path": "14"
+    },
+    "91": {
+      "first_revert": true,
+      "fn": null,
+      "offset": [
+        139,
+        1215
+      ],
+      "op": "REVERT",
+      "path": "14"
+    },
+    "92": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        459,
+        758
+      ],
+      "op": "JUMPDEST",
+      "path": "14"
+    },
+    "93": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        459,
+        758
+      ],
+      "op": "PUSH2",
+      "path": "14",
+      "value": "0x6F"
+    },
+    "96": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        459,
+        758
+      ],
+      "op": "PUSH2",
+      "path": "14",
+      "value": "0x6A"
+    },
+    "99": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        459,
+        758
+      ],
+      "op": "CALLDATASIZE",
+      "path": "14"
+    },
+    "100": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        459,
+        758
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x4"
+    },
+    "102": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        459,
+        758
+      ],
+      "op": "PUSH2",
+      "path": "14",
+      "value": "0x424"
+    },
+    "105": {
+      "fn": "KYCOracle.getKYC",
+      "jump": "i",
+      "offset": [
+        459,
+        758
+      ],
+      "op": "JUMP",
+      "path": "14"
+    },
+    "106": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        459,
+        758
+      ],
+      "op": "JUMPDEST",
+      "path": "14"
+    },
+    "107": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        459,
+        758
+      ],
+      "op": "PUSH2",
+      "path": "14",
+      "value": "0xCD"
+    },
+    "110": {
+      "fn": "KYCOracle.getKYC",
+      "jump": "i",
+      "offset": [
+        459,
+        758
+      ],
+      "op": "JUMP",
+      "path": "14"
+    },
+    "111": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        459,
+        758
+      ],
+      "op": "JUMPDEST",
+      "path": "14"
+    },
+    "112": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        459,
+        758
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x40"
+    },
+    "114": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        459,
+        758
+      ],
+      "op": "MLOAD",
+      "path": "14"
+    },
+    "115": {
+      "op": "SWAP1"
+    },
+    "116": {
+      "op": "DUP2"
+    },
+    "117": {
+      "op": "MSTORE"
+    },
+    "118": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "120": {
+      "op": "ADD"
+    },
+    "121": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        459,
+        758
+      ],
+      "op": "JUMPDEST",
+      "path": "14"
+    },
+    "122": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        459,
+        758
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x40"
+    },
+    "124": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        459,
+        758
+      ],
+      "op": "MLOAD",
+      "path": "14"
+    },
+    "125": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        459,
+        758
+      ],
+      "op": "DUP1",
+      "path": "14"
+    },
+    "126": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        459,
+        758
+      ],
+      "op": "SWAP2",
+      "path": "14"
+    },
+    "127": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        459,
+        758
+      ],
+      "op": "SUB",
+      "path": "14"
+    },
+    "128": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        459,
+        758
+      ],
+      "op": "SWAP1",
+      "path": "14"
+    },
+    "129": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        459,
+        758
+      ],
+      "op": "RETURN",
+      "path": "14"
+    },
+    "130": {
+      "fn": "Ownable.renounceOwnership",
+      "offset": [
+        1605,
+        1697
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "131": {
+      "fn": "Ownable.renounceOwnership",
+      "offset": [
+        1605,
+        1697
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x8A"
+    },
+    "134": {
+      "fn": "Ownable.renounceOwnership",
+      "offset": [
+        1605,
+        1697
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x1B4"
+    },
+    "137": {
+      "fn": "Ownable.renounceOwnership",
+      "jump": "i",
+      "offset": [
+        1605,
+        1697
+      ],
+      "op": "JUMP",
+      "path": "2"
+    },
+    "138": {
+      "fn": "Ownable.renounceOwnership",
+      "offset": [
+        1605,
+        1697
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "139": {
+      "fn": "Ownable.renounceOwnership",
+      "offset": [
+        1605,
+        1697
+      ],
+      "op": "STOP",
+      "path": "2"
+    },
+    "140": {
+      "fn": "Ownable.owner",
+      "offset": [
+        973,
+        1058
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "141": {
+      "fn": "Ownable.owner",
+      "offset": [
+        1019,
+        1026
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x0"
+    },
+    "143": {
+      "fn": "Ownable.owner",
+      "offset": [
+        1045,
+        1051
+      ],
+      "op": "SLOAD",
+      "path": "2",
+      "statement": 0
+    },
+    "144": {
+      "fn": "Ownable.owner",
+      "offset": [
+        973,
+        1058
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "146": {
+      "fn": "Ownable.owner",
+      "offset": [
+        973,
+        1058
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "147": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "149": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "151": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "153": {
+      "op": "SHL"
+    },
+    "154": {
+      "op": "SUB"
+    },
+    "155": {
+      "fn": "Ownable.owner",
+      "offset": [
+        1045,
+        1051
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "156": {
+      "fn": "Ownable.owner",
+      "offset": [
+        1045,
+        1051
+      ],
+      "op": "SWAP2",
+      "path": "2"
+    },
+    "157": {
+      "fn": "Ownable.owner",
+      "offset": [
+        1045,
+        1051
+      ],
+      "op": "AND",
+      "path": "2"
+    },
+    "158": {
+      "op": "DUP2"
+    },
+    "159": {
+      "op": "MSTORE"
+    },
+    "160": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "162": {
+      "op": "ADD"
+    },
+    "163": {
+      "fn": "Ownable.owner",
+      "offset": [
+        973,
+        1058
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x79"
+    },
+    "166": {
+      "op": "JUMP"
+    },
+    "167": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        1846,
+        2035
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "168": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        1846,
+        2035
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x8A"
+    },
+    "171": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        1846,
+        2035
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0xB5"
+    },
+    "174": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        1846,
+        2035
+      ],
+      "op": "CALLDATASIZE",
+      "path": "2"
+    },
+    "175": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        1846,
+        2035
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x4"
+    },
+    "177": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        1846,
+        2035
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x424"
+    },
+    "180": {
+      "fn": "Ownable.transferOwnership",
+      "jump": "i",
+      "offset": [
+        1846,
+        2035
+      ],
+      "op": "JUMP",
+      "path": "2"
+    },
+    "181": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        1846,
+        2035
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "182": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        1846,
+        2035
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x1F3"
+    },
+    "185": {
+      "fn": "Ownable.transferOwnership",
+      "jump": "i",
+      "offset": [
+        1846,
+        2035
+      ],
+      "op": "JUMP",
+      "path": "2"
+    },
+    "186": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        764,
+        1213
+      ],
+      "op": "JUMPDEST",
+      "path": "14"
+    },
+    "187": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        764,
+        1213
+      ],
+      "op": "PUSH2",
+      "path": "14",
+      "value": "0x8A"
+    },
+    "190": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        764,
+        1213
+      ],
+      "op": "PUSH2",
+      "path": "14",
+      "value": "0xC8"
+    },
+    "193": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        764,
+        1213
+      ],
+      "op": "CALLDATASIZE",
+      "path": "14"
+    },
+    "194": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        764,
+        1213
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x4"
+    },
+    "196": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        764,
+        1213
+      ],
+      "op": "PUSH2",
+      "path": "14",
+      "value": "0x446"
+    },
+    "199": {
+      "fn": "KYCOracle.setKYC",
+      "jump": "i",
+      "offset": [
+        764,
+        1213
+      ],
+      "op": "JUMP",
+      "path": "14"
+    },
+    "200": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        764,
+        1213
+      ],
+      "op": "JUMPDEST",
+      "path": "14"
+    },
+    "201": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        764,
+        1213
+      ],
+      "op": "PUSH2",
+      "path": "14",
+      "value": "0x28E"
+    },
+    "204": {
+      "fn": "KYCOracle.setKYC",
+      "jump": "i",
+      "offset": [
+        764,
+        1213
+      ],
+      "op": "JUMP",
+      "path": "14"
+    },
+    "205": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        459,
+        758
+      ],
+      "op": "JUMPDEST",
+      "path": "14"
+    },
+    "206": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        529,
+        538
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "statement": 1,
+      "value": "0x1"
+    },
+    "208": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        529,
+        540
+      ],
+      "op": "DUP1",
+      "path": "14"
+    },
+    "209": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        529,
+        540
+      ],
+      "op": "SLOAD",
+      "path": "14"
+    },
+    "210": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        510,
+        517
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x0"
+    },
+    "212": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        510,
+        517
+      ],
+      "op": "SWAP2",
+      "path": "14"
+    },
+    "213": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        510,
+        517
+      ],
+      "op": "DUP3",
+      "path": "14"
+    },
+    "214": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        529,
+        540
+      ],
+      "op": "PUSH2",
+      "path": "14",
+      "value": "0xDE"
+    },
+    "217": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        529,
+        540
+      ],
+      "op": "DUP4",
+      "path": "14"
+    },
+    "218": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        529,
+        540
+      ],
+      "op": "PUSH2",
+      "path": "14",
+      "value": "0x4D9"
+    },
+    "221": {
+      "fn": "KYCOracle.getKYC",
+      "jump": "i",
+      "offset": [
+        529,
+        540
+      ],
+      "op": "JUMP",
+      "path": "14"
+    },
+    "222": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        529,
+        540
+      ],
+      "op": "JUMPDEST",
+      "path": "14"
+    },
+    "223": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        529,
+        540
+      ],
+      "op": "SWAP2",
+      "path": "14"
+    },
+    "224": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        529,
+        540
+      ],
+      "op": "SWAP1",
+      "path": "14"
+    },
+    "225": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        529,
+        540
+      ],
+      "op": "POP",
+      "path": "14"
+    },
+    "226": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        529,
+        540
+      ],
+      "op": "SSTORE",
+      "path": "14"
+    },
+    "227": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        529,
+        540
+      ],
+      "op": "POP",
+      "path": "14"
+    },
+    "228": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        550,
+        557
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x0"
+    },
+    "230": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        635,
+        642
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x2"
+    },
+    "232": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        635,
+        642
+      ],
+      "op": "SLOAD",
+      "path": "14"
+    },
+    "233": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        592,
+        607
+      ],
+      "op": "TIMESTAMP",
+      "path": "14"
+    },
+    "234": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        609,
+        619
+      ],
+      "op": "CALLER",
+      "path": "14"
+    },
+    "235": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        620,
+        629
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x1"
+    },
+    "237": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        620,
+        629
+      ],
+      "op": "SLOAD",
+      "path": "14"
+    },
+    "238": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        575,
+        630
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x40"
+    },
+    "240": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        575,
+        630
+      ],
+      "op": "MLOAD",
+      "path": "14"
+    },
+    "241": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        575,
+        630
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x20"
+    },
+    "243": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        575,
+        630
+      ],
+      "op": "ADD",
+      "path": "14"
+    },
+    "244": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        575,
+        630
+      ],
+      "op": "PUSH2",
+      "path": "14",
+      "value": "0x122"
+    },
+    "247": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        575,
+        630
+      ],
+      "op": "SWAP4",
+      "path": "14"
+    },
+    "248": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        575,
+        630
+      ],
+      "op": "SWAP3",
+      "path": "14"
+    },
+    "249": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        575,
+        630
+      ],
+      "op": "SWAP2",
+      "path": "14"
+    },
+    "250": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        575,
+        630
+      ],
+      "op": "SWAP1",
+      "path": "14"
+    },
+    "251": {
+      "op": "SWAP3"
+    },
+    "252": {
+      "op": "DUP4"
+    },
+    "253": {
+      "op": "MSTORE"
+    },
+    "254": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "256": {
+      "op": "SWAP2"
+    },
+    "257": {
+      "op": "SWAP1"
+    },
+    "258": {
+      "op": "SWAP2"
+    },
+    "259": {
+      "op": "SHL"
+    },
+    "260": {
+      "op": "PUSH12",
+      "value": "0xFFFFFFFFFFFFFFFFFFFFFFFF"
+    },
+    "273": {
+      "op": "NOT"
+    },
+    "274": {
+      "op": "AND"
+    },
+    "275": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "277": {
+      "op": "DUP4"
+    },
+    "278": {
+      "op": "ADD"
+    },
+    "279": {
+      "op": "MSTORE"
+    },
+    "280": {
+      "op": "PUSH1",
+      "value": "0x34"
+    },
+    "282": {
+      "op": "DUP3"
+    },
+    "283": {
+      "op": "ADD"
+    },
+    "284": {
+      "op": "MSTORE"
+    },
+    "285": {
+      "op": "PUSH1",
+      "value": "0x54"
+    },
+    "287": {
+      "op": "ADD"
+    },
+    "288": {
+      "op": "SWAP1"
+    },
+    "289": {
+      "op": "JUMP"
+    },
+    "290": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        575,
+        630
+      ],
+      "op": "JUMPDEST",
+      "path": "14"
+    },
+    "291": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        575,
+        630
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x40"
+    },
+    "293": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        575,
+        630
+      ],
+      "op": "MLOAD",
+      "path": "14"
+    },
+    "294": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        575,
+        630
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x20"
+    },
+    "296": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        575,
+        630
+      ],
+      "op": "DUP2",
+      "path": "14"
+    },
+    "297": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        575,
+        630
+      ],
+      "op": "DUP4",
+      "path": "14"
+    },
+    "298": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        575,
+        630
+      ],
+      "op": "SUB",
+      "path": "14"
+    },
+    "299": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        575,
+        630
+      ],
+      "op": "SUB",
+      "path": "14"
+    },
+    "300": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        575,
+        630
+      ],
+      "op": "DUP2",
+      "path": "14"
+    },
+    "301": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        575,
+        630
+      ],
+      "op": "MSTORE",
+      "path": "14"
+    },
+    "302": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        575,
+        630
+      ],
+      "op": "SWAP1",
+      "path": "14"
+    },
+    "303": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        575,
+        630
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x40"
+    },
+    "305": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        575,
+        630
+      ],
+      "op": "MSTORE",
+      "path": "14"
+    },
+    "306": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        565,
+        631
+      ],
+      "op": "DUP1",
+      "path": "14"
+    },
+    "307": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        565,
+        631
+      ],
+      "op": "MLOAD",
+      "path": "14"
+    },
+    "308": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        565,
+        631
+      ],
+      "op": "SWAP1",
+      "path": "14"
+    },
+    "309": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        565,
+        631
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x20"
+    },
+    "311": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        565,
+        631
+      ],
+      "op": "ADD",
+      "path": "14"
+    },
+    "312": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        565,
+        631
+      ],
+      "op": "KECCAK256",
+      "path": "14"
+    },
+    "313": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        560,
+        632
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x0"
+    },
+    "315": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        560,
+        632
+      ],
+      "op": "SHR",
+      "path": "14"
+    },
+    "316": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        560,
+        642
+      ],
+      "op": "PUSH2",
+      "path": "14",
+      "value": "0x145"
+    },
+    "319": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        560,
+        642
+      ],
+      "op": "SWAP2",
+      "path": "14"
+    },
+    "320": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        560,
+        642
+      ],
+      "op": "SWAP1",
+      "path": "14"
+    },
+    "321": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        560,
+        642
+      ],
+      "op": "PUSH2",
+      "path": "14",
+      "value": "0x502"
+    },
+    "324": {
+      "fn": "KYCOracle.getKYC",
+      "jump": "i",
+      "offset": [
+        560,
+        642
+      ],
+      "op": "JUMP",
+      "path": "14"
+    },
+    "325": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        560,
+        642
+      ],
+      "op": "JUMPDEST",
+      "path": "14"
+    },
+    "326": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        653,
+        672
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "statement": 2,
+      "value": "0x0"
+    },
+    "328": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        653,
+        672
+      ],
+      "op": "DUP2",
+      "path": "14"
+    },
+    "329": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        653,
+        672
+      ],
+      "op": "DUP2",
+      "path": "14"
+    },
+    "330": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        653,
+        672
+      ],
+      "op": "MSTORE",
+      "path": "14"
+    },
+    "331": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        653,
+        668
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x3"
+    },
+    "333": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        653,
+        672
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x20"
+    },
+    "335": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        653,
+        672
+      ],
+      "op": "SWAP1",
+      "path": "14"
+    },
+    "336": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        653,
+        672
+      ],
+      "op": "DUP2",
+      "path": "14"
+    },
+    "337": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        653,
+        672
+      ],
+      "op": "MSTORE",
+      "path": "14"
+    },
+    "338": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        653,
+        672
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x40"
+    },
+    "340": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        653,
+        672
+      ],
+      "op": "SWAP2",
+      "path": "14"
+    },
+    "341": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        653,
+        672
+      ],
+      "op": "DUP3",
+      "path": "14"
+    },
+    "342": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        653,
+        672
+      ],
+      "op": "SWAP1",
+      "path": "14"
+    },
+    "343": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        653,
+        672
+      ],
+      "op": "KECCAK256",
+      "path": "14"
+    },
+    "344": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        653,
+        679
+      ],
+      "op": "DUP1",
+      "path": "14"
+    },
+    "345": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        653,
+        679
+      ],
+      "op": "SLOAD",
+      "path": "14"
+    },
+    "346": {
+      "op": "PUSH1",
+      "value": "0xFF"
+    },
+    "348": {
+      "op": "NOT"
+    },
+    "349": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        653,
+        679
+      ],
+      "op": "AND",
+      "path": "14"
+    },
+    "350": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        675,
+        679
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x1"
+    },
+    "352": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        653,
+        679
+      ],
+      "op": "OR",
+      "path": "14"
+    },
+    "353": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        653,
+        679
+      ],
+      "op": "SWAP1",
+      "path": "14"
+    },
+    "354": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        653,
+        679
+      ],
+      "op": "SSTORE",
+      "path": "14"
+    },
+    "355": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        694,
+        732
+      ],
+      "op": "DUP2",
+      "path": "14",
+      "statement": 3
+    },
+    "356": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        694,
+        732
+      ],
+      "op": "MLOAD",
+      "path": "14"
+    },
+    "357": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        706,
+        716
+      ],
+      "op": "CALLER",
+      "path": "14"
+    },
+    "358": {
+      "op": "DUP2"
+    },
+    "359": {
+      "op": "MSTORE"
+    },
+    "360": {
+      "op": "SWAP1"
+    },
+    "361": {
+      "op": "DUP2"
+    },
+    "362": {
+      "op": "ADD"
+    },
+    "363": {
+      "op": "DUP4"
+    },
+    "364": {
+      "op": "SWAP1"
+    },
+    "365": {
+      "op": "MSTORE"
+    },
+    "366": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "368": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "370": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "372": {
+      "op": "SHL"
+    },
+    "373": {
+      "op": "SUB"
+    },
+    "374": {
+      "op": "DUP7"
+    },
+    "375": {
+      "op": "AND"
+    },
+    "376": {
+      "op": "SWAP2"
+    },
+    "377": {
+      "op": "DUP2"
+    },
+    "378": {
+      "op": "ADD"
+    },
+    "379": {
+      "op": "SWAP2"
+    },
+    "380": {
+      "op": "SWAP1"
+    },
+    "381": {
+      "op": "SWAP2"
+    },
+    "382": {
+      "op": "MSTORE"
+    },
+    "383": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        653,
+        672
+      ],
+      "op": "SWAP1",
+      "path": "14"
+    },
+    "384": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        653,
+        672
+      ],
+      "op": "SWAP2",
+      "path": "14"
+    },
+    "385": {
+      "op": "POP"
+    },
+    "386": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        694,
+        732
+      ],
+      "op": "PUSH32",
+      "path": "14",
+      "value": "0x2F11752A78F42D29F99212B37FA1798C30E13941D158100C1A72F3DE3B82AFEB"
+    },
+    "419": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        694,
+        732
+      ],
+      "op": "SWAP1",
+      "path": "14"
+    },
+    "420": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "422": {
+      "op": "ADD"
+    },
+    "423": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        694,
+        732
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x40"
+    },
+    "425": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        694,
+        732
+      ],
+      "op": "MLOAD",
+      "path": "14"
+    },
+    "426": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        694,
+        732
+      ],
+      "op": "DUP1",
+      "path": "14"
+    },
+    "427": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        694,
+        732
+      ],
+      "op": "SWAP2",
+      "path": "14"
+    },
+    "428": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        694,
+        732
+      ],
+      "op": "SUB",
+      "path": "14"
+    },
+    "429": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        694,
+        732
+      ],
+      "op": "SWAP1",
+      "path": "14"
+    },
+    "430": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        694,
+        732
+      ],
+      "op": "LOG1",
+      "path": "14"
+    },
+    "431": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        749,
+        751
+      ],
+      "op": "SWAP3",
+      "path": "14",
+      "statement": 4
+    },
+    "432": {
+      "fn": "KYCOracle.getKYC",
+      "offset": [
+        459,
+        758
+      ],
+      "op": "SWAP2",
+      "path": "14"
+    },
+    "433": {
+      "op": "POP"
+    },
+    "434": {
+      "op": "POP"
+    },
+    "435": {
+      "fn": "KYCOracle.getKYC",
+      "jump": "o",
+      "offset": [
+        459,
+        758
+      ],
+      "op": "JUMP",
+      "path": "14"
+    },
+    "436": {
+      "fn": "Ownable.renounceOwnership",
+      "offset": [
+        1605,
+        1697
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "437": {
+      "fn": "Ownable.owner",
+      "offset": [
+        1019,
+        1026
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x0"
+    },
+    "439": {
+      "fn": "Ownable.owner",
+      "offset": [
+        1045,
+        1051
+      ],
+      "op": "SLOAD",
+      "path": "2"
+    },
+    "440": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "442": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "444": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "446": {
+      "op": "SHL"
+    },
+    "447": {
+      "op": "SUB"
+    },
+    "448": {
+      "fn": "Ownable.owner",
+      "offset": [
+        1045,
+        1051
+      ],
+      "op": "AND",
+      "path": "2"
+    },
+    "449": {
+      "fn": "Context._msgSender",
+      "offset": [
+        666,
+        676
+      ],
+      "op": "CALLER",
+      "path": "4",
+      "statement": 5
+    },
+    "450": {
+      "offset": [
+        1185,
+        1208
+      ],
+      "op": "EQ",
+      "path": "2"
+    },
+    "451": {
+      "offset": [
+        1177,
+        1245
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x1E7"
+    },
+    "454": {
+      "offset": [
+        1177,
+        1245
+      ],
+      "op": "JUMPI",
+      "path": "2"
+    },
+    "455": {
+      "fn": "Context._msgSender",
+      "offset": [
+        1177,
+        1245
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "457": {
+      "fn": "Context._msgSender",
+      "offset": [
+        1177,
+        1245
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "458": {
+      "op": "PUSH3",
+      "value": "0x461BCD"
+    },
+    "462": {
+      "op": "PUSH1",
+      "value": "0xE5"
+    },
+    "464": {
+      "op": "SHL"
+    },
+    "465": {
+      "offset": [
+        1177,
+        1245
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "466": {
+      "fn": "Context._msgSender",
+      "offset": [
+        1177,
+        1245
+      ],
+      "op": "MSTORE",
+      "path": "2"
+    },
+    "467": {
+      "fn": "Context._msgSender",
+      "offset": [
+        1177,
+        1245
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x4"
+    },
+    "469": {
+      "fn": "Context._msgSender",
+      "offset": [
+        1177,
+        1245
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "470": {
+      "fn": "Context._msgSender",
+      "offset": [
+        1177,
+        1245
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x1DE"
+    },
+    "473": {
+      "fn": "Context._msgSender",
+      "offset": [
+        1177,
+        1245
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "474": {
+      "fn": "Context._msgSender",
+      "offset": [
+        1177,
+        1245
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x4A4"
+    },
+    "477": {
+      "fn": "Context._msgSender",
+      "jump": "i",
+      "offset": [
+        1177,
+        1245
+      ],
+      "op": "JUMP",
+      "path": "2"
+    },
+    "478": {
+      "fn": "Context._msgSender",
+      "offset": [
+        1177,
+        1245
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "479": {
+      "fn": "Context._msgSender",
+      "offset": [
+        1177,
+        1245
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "481": {
+      "fn": "Context._msgSender",
+      "offset": [
+        1177,
+        1245
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "482": {
+      "fn": "Context._msgSender",
+      "offset": [
+        1177,
+        1245
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "483": {
+      "fn": "Context._msgSender",
+      "offset": [
+        1177,
+        1245
+      ],
+      "op": "SWAP2",
+      "path": "2"
+    },
+    "484": {
+      "fn": "Context._msgSender",
+      "offset": [
+        1177,
+        1245
+      ],
+      "op": "SUB",
+      "path": "2"
+    },
+    "485": {
+      "fn": "Context._msgSender",
+      "offset": [
+        1177,
+        1245
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "486": {
+      "fn": "Context._msgSender",
+      "offset": [
+        1177,
+        1245
+      ],
+      "op": "REVERT",
+      "optimizer_revert": true,
+      "path": "2"
+    },
+    "487": {
+      "fn": "Context._msgSender",
+      "offset": [
+        1177,
+        1245
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "488": {
+      "fn": "Ownable.renounceOwnership",
+      "offset": [
+        1669,
+        1690
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "statement": 6,
+      "value": "0x1F1"
+    },
+    "491": {
+      "fn": "Ownable.renounceOwnership",
+      "offset": [
+        1687,
+        1688
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x0"
+    },
+    "493": {
+      "fn": "Ownable.renounceOwnership",
+      "offset": [
+        1669,
+        1678
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x3B8"
+    },
+    "496": {
+      "fn": "Ownable.renounceOwnership",
+      "jump": "i",
+      "offset": [
+        1669,
+        1690
+      ],
+      "op": "JUMP",
+      "path": "2"
+    },
+    "497": {
+      "fn": "Ownable.renounceOwnership",
+      "offset": [
+        1669,
+        1690
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "498": {
+      "fn": "Ownable.renounceOwnership",
+      "jump": "o",
+      "offset": [
+        1605,
+        1697
+      ],
+      "op": "JUMP",
+      "path": "2"
+    },
+    "499": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        1846,
+        2035
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "500": {
+      "fn": "Ownable.owner",
+      "offset": [
+        1019,
+        1026
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x0"
+    },
+    "502": {
+      "fn": "Ownable.owner",
+      "offset": [
+        1045,
+        1051
+      ],
+      "op": "SLOAD",
+      "path": "2"
+    },
+    "503": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "505": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "507": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "509": {
+      "op": "SHL"
+    },
+    "510": {
+      "op": "SUB"
+    },
+    "511": {
+      "fn": "Ownable.owner",
+      "offset": [
+        1045,
+        1051
+      ],
+      "op": "AND",
+      "path": "2"
+    },
+    "512": {
+      "fn": "Context._msgSender",
+      "offset": [
+        666,
+        676
+      ],
+      "op": "CALLER",
+      "path": "4"
+    },
+    "513": {
+      "offset": [
+        1185,
+        1208
+      ],
+      "op": "EQ",
+      "path": "2"
+    },
+    "514": {
+      "offset": [
+        1177,
+        1245
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x21D"
+    },
+    "517": {
+      "offset": [
+        1177,
+        1245
+      ],
+      "op": "JUMPI",
+      "path": "2"
+    },
+    "518": {
+      "fn": "Context._msgSender",
+      "offset": [
+        1177,
+        1245
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "520": {
+      "fn": "Context._msgSender",
+      "offset": [
+        1177,
+        1245
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "521": {
+      "op": "PUSH3",
+      "value": "0x461BCD"
+    },
+    "525": {
+      "op": "PUSH1",
+      "value": "0xE5"
+    },
+    "527": {
+      "op": "SHL"
+    },
+    "528": {
+      "offset": [
+        1177,
+        1245
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "529": {
+      "fn": "Context._msgSender",
+      "offset": [
+        1177,
+        1245
+      ],
+      "op": "MSTORE",
+      "path": "2"
+    },
+    "530": {
+      "fn": "Context._msgSender",
+      "offset": [
+        1177,
+        1245
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x4"
+    },
+    "532": {
+      "fn": "Context._msgSender",
+      "offset": [
+        1177,
+        1245
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "533": {
+      "fn": "Context._msgSender",
+      "offset": [
+        1177,
+        1245
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x1DE"
+    },
+    "536": {
+      "fn": "Context._msgSender",
+      "offset": [
+        1177,
+        1245
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "537": {
+      "fn": "Context._msgSender",
+      "offset": [
+        1177,
+        1245
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x4A4"
+    },
+    "540": {
+      "fn": "Context._msgSender",
+      "jump": "i",
+      "offset": [
+        1177,
+        1245
+      ],
+      "op": "JUMP",
+      "path": "2"
+    },
+    "541": {
+      "fn": "Context._msgSender",
+      "offset": [
+        1177,
+        1245
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "542": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "544": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "546": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "548": {
+      "op": "SHL"
+    },
+    "549": {
+      "op": "SUB"
+    },
+    "550": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        1934,
+        1956
+      ],
+      "op": "DUP2",
+      "path": "2",
+      "statement": 7
+    },
+    "551": {
+      "branch": 17,
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        1934,
+        1956
+      ],
+      "op": "AND",
+      "path": "2"
+    },
+    "552": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        1926,
+        1999
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x282"
+    },
+    "555": {
+      "branch": 17,
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        1926,
+        1999
+      ],
+      "op": "JUMPI",
+      "path": "2"
+    },
+    "556": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        1926,
+        1999
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "558": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        1926,
+        1999
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "559": {
+      "op": "PUSH3",
+      "value": "0x461BCD"
+    },
+    "563": {
+      "op": "PUSH1",
+      "value": "0xE5"
+    },
+    "565": {
+      "op": "SHL"
+    },
+    "566": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        1926,
+        1999
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "567": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        1926,
+        1999
+      ],
+      "op": "MSTORE",
+      "path": "2"
+    },
+    "568": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "570": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        1926,
+        1999
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x4"
+    },
+    "572": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        1926,
+        1999
+      ],
+      "op": "DUP3",
+      "path": "2"
+    },
+    "573": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        1926,
+        1999
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "574": {
+      "op": "MSTORE"
+    },
+    "575": {
+      "op": "PUSH1",
+      "value": "0x26"
+    },
+    "577": {
+      "op": "PUSH1",
+      "value": "0x24"
+    },
+    "579": {
+      "op": "DUP3"
+    },
+    "580": {
+      "op": "ADD"
+    },
+    "581": {
+      "op": "MSTORE"
+    },
+    "582": {
+      "op": "PUSH32",
+      "value": "0x4F776E61626C653A206E6577206F776E657220697320746865207A65726F2061"
+    },
+    "615": {
+      "op": "PUSH1",
+      "value": "0x44"
+    },
+    "617": {
+      "op": "DUP3"
+    },
+    "618": {
+      "op": "ADD"
+    },
+    "619": {
+      "op": "MSTORE"
+    },
+    "620": {
+      "op": "PUSH6",
+      "value": "0x646472657373"
+    },
+    "627": {
+      "op": "PUSH1",
+      "value": "0xD0"
+    },
+    "629": {
+      "op": "SHL"
+    },
+    "630": {
+      "op": "PUSH1",
+      "value": "0x64"
+    },
+    "632": {
+      "op": "DUP3"
+    },
+    "633": {
+      "op": "ADD"
+    },
+    "634": {
+      "op": "MSTORE"
+    },
+    "635": {
+      "op": "PUSH1",
+      "value": "0x84"
+    },
+    "637": {
+      "op": "ADD"
+    },
+    "638": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        1926,
+        1999
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x1DE"
+    },
+    "641": {
+      "op": "JUMP"
+    },
+    "642": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        1926,
+        1999
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "643": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        2009,
+        2028
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "statement": 8,
+      "value": "0x28B"
+    },
+    "646": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        2019,
+        2027
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "647": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        2009,
+        2018
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x3B8"
+    },
+    "650": {
+      "fn": "Ownable.transferOwnership",
+      "jump": "i",
+      "offset": [
+        2009,
+        2028
+      ],
+      "op": "JUMP",
+      "path": "2"
+    },
+    "651": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        2009,
+        2028
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "652": {
+      "fn": "Ownable.transferOwnership",
+      "offset": [
+        1846,
+        2035
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "653": {
+      "fn": "Ownable.transferOwnership",
+      "jump": "o",
+      "offset": [
+        1846,
+        2035
+      ],
+      "op": "JUMP",
+      "path": "2"
+    },
+    "654": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        764,
+        1213
+      ],
+      "op": "JUMPDEST",
+      "path": "14"
+    },
+    "655": {
+      "fn": "Ownable.owner",
+      "offset": [
+        1019,
+        1026
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x0"
+    },
+    "657": {
+      "fn": "Ownable.owner",
+      "offset": [
+        1045,
+        1051
+      ],
+      "op": "SLOAD",
+      "path": "2"
+    },
+    "658": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "660": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "662": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "664": {
+      "op": "SHL"
+    },
+    "665": {
+      "op": "SUB"
+    },
+    "666": {
+      "fn": "Ownable.owner",
+      "offset": [
+        1045,
+        1051
+      ],
+      "op": "AND",
+      "path": "2"
+    },
+    "667": {
+      "fn": "Context._msgSender",
+      "offset": [
+        666,
+        676
+      ],
+      "op": "CALLER",
+      "path": "4"
+    },
+    "668": {
+      "offset": [
+        1185,
+        1208
+      ],
+      "op": "EQ",
+      "path": "2"
+    },
+    "669": {
+      "offset": [
+        1177,
+        1245
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x2B8"
+    },
+    "672": {
+      "offset": [
+        1177,
+        1245
+      ],
+      "op": "JUMPI",
+      "path": "2"
+    },
+    "673": {
+      "fn": "Context._msgSender",
+      "offset": [
+        1177,
+        1245
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "675": {
+      "fn": "Context._msgSender",
+      "offset": [
+        1177,
+        1245
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "676": {
+      "op": "PUSH3",
+      "value": "0x461BCD"
+    },
+    "680": {
+      "op": "PUSH1",
+      "value": "0xE5"
+    },
+    "682": {
+      "op": "SHL"
+    },
+    "683": {
+      "offset": [
+        1177,
+        1245
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "684": {
+      "fn": "Context._msgSender",
+      "offset": [
+        1177,
+        1245
+      ],
+      "op": "MSTORE",
+      "path": "2"
+    },
+    "685": {
+      "fn": "Context._msgSender",
+      "offset": [
+        1177,
+        1245
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x4"
+    },
+    "687": {
+      "fn": "Context._msgSender",
+      "offset": [
+        1177,
+        1245
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "688": {
+      "fn": "Context._msgSender",
+      "offset": [
+        1177,
+        1245
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x1DE"
+    },
+    "691": {
+      "fn": "Context._msgSender",
+      "offset": [
+        1177,
+        1245
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "692": {
+      "fn": "Context._msgSender",
+      "offset": [
+        1177,
+        1245
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x4A4"
+    },
+    "695": {
+      "fn": "Context._msgSender",
+      "jump": "i",
+      "offset": [
+        1177,
+        1245
+      ],
+      "op": "JUMP",
+      "path": "2"
+    },
+    "696": {
+      "fn": "Context._msgSender",
+      "offset": [
+        1177,
+        1245
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "697": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        905,
+        925
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "statement": 9,
+      "value": "0x0"
+    },
+    "699": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        905,
+        925
+      ],
+      "op": "DUP3",
+      "path": "14"
+    },
+    "700": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        905,
+        925
+      ],
+      "op": "DUP2",
+      "path": "14"
+    },
+    "701": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        905,
+        925
+      ],
+      "op": "MSTORE",
+      "path": "14"
+    },
+    "702": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        905,
+        920
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x3"
+    },
+    "704": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        905,
+        925
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x20"
+    },
+    "706": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        905,
+        925
+      ],
+      "op": "MSTORE",
+      "path": "14"
+    },
+    "707": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        905,
+        925
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x40"
+    },
+    "709": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        905,
+        925
+      ],
+      "op": "SWAP1",
+      "path": "14"
+    },
+    "710": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        905,
+        925
+      ],
+      "op": "KECCAK256",
+      "path": "14"
+    },
+    "711": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        905,
+        925
+      ],
+      "op": "SLOAD",
+      "path": "14"
+    },
+    "712": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        905,
+        925
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0xFF"
+    },
+    "714": {
+      "branch": 16,
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        905,
+        925
+      ],
+      "op": "AND",
+      "path": "14"
+    },
+    "715": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        897,
+        926
+      ],
+      "op": "PUSH2",
+      "path": "14",
+      "value": "0x2D3"
+    },
+    "718": {
+      "branch": 16,
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        897,
+        926
+      ],
+      "op": "JUMPI",
+      "path": "14"
+    },
+    "719": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        897,
+        926
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x0"
+    },
+    "721": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        897,
+        926
+      ],
+      "op": "DUP1",
+      "path": "14"
+    },
+    "722": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        897,
+        926
+      ],
+      "op": "REVERT",
+      "path": "14"
+    },
+    "723": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        897,
+        926
+      ],
+      "op": "JUMPDEST",
+      "path": "14"
+    },
+    "724": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        943,
+        963
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "statement": 10,
+      "value": "0x0"
+    },
+    "726": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        943,
+        963
+      ],
+      "op": "DUP3",
+      "path": "14"
+    },
+    "727": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        943,
+        963
+      ],
+      "op": "DUP2",
+      "path": "14"
+    },
+    "728": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        943,
+        963
+      ],
+      "op": "MSTORE",
+      "path": "14"
+    },
+    "729": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        943,
+        958
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x3"
+    },
+    "731": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        943,
+        963
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x20"
+    },
+    "733": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        943,
+        963
+      ],
+      "op": "MSTORE",
+      "path": "14"
+    },
+    "734": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        943,
+        963
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x40"
+    },
+    "736": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        943,
+        963
+      ],
+      "op": "SWAP1",
+      "path": "14"
+    },
+    "737": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        943,
+        963
+      ],
+      "op": "DUP2",
+      "path": "14"
+    },
+    "738": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        943,
+        963
+      ],
+      "op": "SWAP1",
+      "path": "14"
+    },
+    "739": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        943,
+        963
+      ],
+      "op": "KECCAK256",
+      "path": "14"
+    },
+    "740": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        936,
+        963
+      ],
+      "op": "DUP1",
+      "path": "14"
+    },
+    "741": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        936,
+        963
+      ],
+      "op": "SLOAD",
+      "path": "14"
+    },
+    "742": {
+      "op": "PUSH1",
+      "value": "0xFF"
+    },
+    "744": {
+      "op": "NOT"
+    },
+    "745": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        936,
+        963
+      ],
+      "op": "AND",
+      "path": "14"
+    },
+    "746": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        936,
+        963
+      ],
+      "op": "SWAP1",
+      "path": "14"
+    },
+    "747": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        936,
+        963
+      ],
+      "op": "SSTORE",
+      "path": "14"
+    },
+    "748": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1071,
+        1132
+      ],
+      "op": "MLOAD",
+      "path": "14",
+      "statement": 11
+    },
+    "749": {
+      "op": "PUSH4",
+      "value": "0x377BE6B"
+    },
+    "754": {
+      "op": "PUSH1",
+      "value": "0xE6"
+    },
+    "756": {
+      "op": "SHL"
+    },
+    "757": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1071,
+        1132
+      ],
+      "op": "DUP2",
+      "path": "14"
+    },
+    "758": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1071,
+        1132
+      ],
+      "op": "MSTORE",
+      "path": "14"
+    },
+    "759": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1071,
+        1132
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x4"
+    },
+    "761": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1071,
+        1132
+      ],
+      "op": "DUP2",
+      "path": "14"
+    },
+    "762": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1071,
+        1132
+      ],
+      "op": "ADD",
+      "path": "14"
+    },
+    "763": {
+      "op": "DUP6"
+    },
+    "764": {
+      "op": "SWAP1"
+    },
+    "765": {
+      "op": "MSTORE"
+    },
+    "766": {
+      "op": "DUP6"
+    },
+    "767": {
+      "op": "ISZERO"
+    },
+    "768": {
+      "op": "ISZERO"
+    },
+    "769": {
+      "op": "PUSH1",
+      "value": "0x24"
+    },
+    "771": {
+      "op": "DUP3"
+    },
+    "772": {
+      "op": "ADD"
+    },
+    "773": {
+      "op": "MSTORE"
+    },
+    "774": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "776": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "778": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "780": {
+      "op": "SHL"
+    },
+    "781": {
+      "op": "SUB"
+    },
+    "782": {
+      "op": "DUP3"
+    },
+    "783": {
+      "op": "DUP2"
+    },
+    "784": {
+      "op": "AND"
+    },
+    "785": {
+      "op": "PUSH1",
+      "value": "0x44"
+    },
+    "787": {
+      "op": "DUP4"
+    },
+    "788": {
+      "op": "ADD"
+    },
+    "789": {
+      "op": "MSTORE"
+    },
+    "790": {
+      "op": "PUSH1",
+      "value": "0x64"
+    },
+    "792": {
+      "op": "DUP3"
+    },
+    "793": {
+      "op": "ADD"
+    },
+    "794": {
+      "op": "DUP5"
+    },
+    "795": {
+      "op": "SWAP1"
+    },
+    "796": {
+      "op": "MSTORE"
+    },
+    "797": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1046,
+        1060
+      ],
+      "op": "DUP5",
+      "path": "14",
+      "statement": 12
+    },
+    "798": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1046,
+        1060
+      ],
+      "op": "SWAP2",
+      "path": "14"
+    },
+    "799": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1071,
+        1094
+      ],
+      "op": "SWAP1",
+      "path": "14"
+    },
+    "800": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1071,
+        1094
+      ],
+      "op": "DUP3",
+      "path": "14"
+    },
+    "801": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1071,
+        1094
+      ],
+      "op": "AND",
+      "path": "14"
+    },
+    "802": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1071,
+        1094
+      ],
+      "op": "SWAP1",
+      "path": "14"
+    },
+    "803": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1071,
+        1094
+      ],
+      "op": "PUSH4",
+      "path": "14",
+      "value": "0xDDEF9AC0"
+    },
+    "808": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1071,
+        1094
+      ],
+      "op": "SWAP1",
+      "path": "14"
+    },
+    "809": {
+      "op": "PUSH1",
+      "value": "0x84"
+    },
+    "811": {
+      "op": "ADD"
+    },
+    "812": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1071,
+        1132
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x0"
+    },
+    "814": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1071,
+        1132
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x40"
+    },
+    "816": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1071,
+        1132
+      ],
+      "op": "MLOAD",
+      "path": "14"
+    },
+    "817": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1071,
+        1132
+      ],
+      "op": "DUP1",
+      "path": "14"
+    },
+    "818": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1071,
+        1132
+      ],
+      "op": "DUP4",
+      "path": "14"
+    },
+    "819": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1071,
+        1132
+      ],
+      "op": "SUB",
+      "path": "14"
+    },
+    "820": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1071,
+        1132
+      ],
+      "op": "DUP2",
+      "path": "14"
+    },
+    "821": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1071,
+        1132
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x0"
+    },
+    "823": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1071,
+        1132
+      ],
+      "op": "DUP8",
+      "path": "14"
+    },
+    "824": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1071,
+        1132
+      ],
+      "op": "DUP1",
+      "path": "14"
+    },
+    "825": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1071,
+        1132
+      ],
+      "op": "EXTCODESIZE",
+      "path": "14"
+    },
+    "826": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1071,
+        1132
+      ],
+      "op": "ISZERO",
+      "path": "14"
+    },
+    "827": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1071,
+        1132
+      ],
+      "op": "DUP1",
+      "path": "14"
+    },
+    "828": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1071,
+        1132
+      ],
+      "op": "ISZERO",
+      "path": "14"
+    },
+    "829": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1071,
+        1132
+      ],
+      "op": "PUSH2",
+      "path": "14",
+      "value": "0x345"
+    },
+    "832": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1071,
+        1132
+      ],
+      "op": "JUMPI",
+      "path": "14"
+    },
+    "833": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1071,
+        1132
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x0"
+    },
+    "835": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1071,
+        1132
+      ],
+      "op": "DUP1",
+      "path": "14"
+    },
+    "836": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1071,
+        1132
+      ],
+      "op": "REVERT",
+      "path": "14"
+    },
+    "837": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1071,
+        1132
+      ],
+      "op": "JUMPDEST",
+      "path": "14"
+    },
+    "838": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1071,
+        1132
+      ],
+      "op": "POP",
+      "path": "14"
+    },
+    "839": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1071,
+        1132
+      ],
+      "op": "GAS",
+      "path": "14"
+    },
+    "840": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1071,
+        1132
+      ],
+      "op": "CALL",
+      "path": "14"
+    },
+    "841": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1071,
+        1132
+      ],
+      "op": "ISZERO",
+      "path": "14"
+    },
+    "842": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1071,
+        1132
+      ],
+      "op": "DUP1",
+      "path": "14"
+    },
+    "843": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1071,
+        1132
+      ],
+      "op": "ISZERO",
+      "path": "14"
+    },
+    "844": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1071,
+        1132
+      ],
+      "op": "PUSH2",
+      "path": "14",
+      "value": "0x359"
+    },
+    "847": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1071,
+        1132
+      ],
+      "op": "JUMPI",
+      "path": "14"
+    },
+    "848": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1071,
+        1132
+      ],
+      "op": "RETURNDATASIZE",
+      "path": "14"
+    },
+    "849": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1071,
+        1132
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x0"
+    },
+    "851": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1071,
+        1132
+      ],
+      "op": "DUP1",
+      "path": "14"
+    },
+    "852": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1071,
+        1132
+      ],
+      "op": "RETURNDATACOPY",
+      "path": "14"
+    },
+    "853": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1071,
+        1132
+      ],
+      "op": "RETURNDATASIZE",
+      "path": "14"
+    },
+    "854": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1071,
+        1132
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x0"
+    },
+    "856": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1071,
+        1132
+      ],
+      "op": "REVERT",
+      "path": "14"
+    },
+    "857": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1071,
+        1132
+      ],
+      "op": "JUMPDEST",
+      "path": "14"
+    },
+    "858": {
+      "op": "POP"
+    },
+    "859": {
+      "op": "POP"
+    },
+    "860": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1147,
+        1206
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "statement": 13,
+      "value": "0x40"
+    },
+    "862": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1147,
+        1206
+      ],
+      "op": "DUP1",
+      "path": "14"
+    },
+    "863": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1147,
+        1206
+      ],
+      "op": "MLOAD",
+      "path": "14"
+    },
+    "864": {
+      "op": "DUP10"
+    },
+    "865": {
+      "op": "ISZERO"
+    },
+    "866": {
+      "op": "ISZERO"
+    },
+    "867": {
+      "op": "DUP2"
+    },
+    "868": {
+      "op": "MSTORE"
+    },
+    "869": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "871": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "873": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "875": {
+      "op": "SHL"
+    },
+    "876": {
+      "op": "SUB"
+    },
+    "877": {
+      "op": "DUP9"
+    },
+    "878": {
+      "op": "DUP2"
+    },
+    "879": {
+      "op": "AND"
+    },
+    "880": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "882": {
+      "op": "DUP4"
+    },
+    "883": {
+      "op": "ADD"
+    },
+    "884": {
+      "op": "MSTORE"
+    },
+    "885": {
+      "op": "DUP7"
+    },
+    "886": {
+      "op": "AND"
+    },
+    "887": {
+      "op": "DUP2"
+    },
+    "888": {
+      "op": "DUP4"
+    },
+    "889": {
+      "op": "ADD"
+    },
+    "890": {
+      "op": "MSTORE"
+    },
+    "891": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "893": {
+      "op": "DUP2"
+    },
+    "894": {
+      "op": "ADD"
+    },
+    "895": {
+      "op": "DUP10"
+    },
+    "896": {
+      "op": "SWAP1"
+    },
+    "897": {
+      "op": "MSTORE"
+    },
+    "898": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1147,
+        1206
+      ],
+      "op": "SWAP1",
+      "path": "14"
+    },
+    "899": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1147,
+        1206
+      ],
+      "op": "MLOAD",
+      "path": "14"
+    },
+    "900": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1147,
+        1206
+      ],
+      "op": "PUSH32",
+      "path": "14",
+      "value": "0x453F80D195908F6AD58E9A5122D5C46E7BEF1167EC036D8B7D602292E2B8F77"
+    },
+    "933": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1147,
+        1206
+      ],
+      "op": "SWAP4",
+      "path": "14"
+    },
+    "934": {
+      "op": "POP"
+    },
+    "935": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1147,
+        1206
+      ],
+      "op": "SWAP1",
+      "path": "14"
+    },
+    "936": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1147,
+        1206
+      ],
+      "op": "DUP2",
+      "path": "14"
+    },
+    "937": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1147,
+        1206
+      ],
+      "op": "SWAP1",
+      "path": "14"
+    },
+    "938": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1147,
+        1206
+      ],
+      "op": "SUB",
+      "path": "14"
+    },
+    "939": {
+      "op": "PUSH1",
+      "value": "0x80"
+    },
+    "941": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1147,
+        1206
+      ],
+      "op": "ADD",
+      "path": "14"
+    },
+    "942": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1147,
+        1206
+      ],
+      "op": "SWAP2",
+      "path": "14"
+    },
+    "943": {
+      "op": "POP"
+    },
+    "944": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        1147,
+        1206
+      ],
+      "op": "LOG1",
+      "path": "14"
+    },
+    "945": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        887,
+        1213
+      ],
+      "op": "POP",
+      "path": "14"
+    },
+    "946": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        764,
+        1213
+      ],
+      "op": "POP",
+      "path": "14"
+    },
+    "947": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        764,
+        1213
+      ],
+      "op": "POP",
+      "path": "14"
+    },
+    "948": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        764,
+        1213
+      ],
+      "op": "POP",
+      "path": "14"
+    },
+    "949": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        764,
+        1213
+      ],
+      "op": "POP",
+      "path": "14"
+    },
+    "950": {
+      "fn": "KYCOracle.setKYC",
+      "offset": [
+        764,
+        1213
+      ],
+      "op": "POP",
+      "path": "14"
+    },
+    "951": {
+      "fn": "KYCOracle.setKYC",
+      "jump": "o",
+      "offset": [
+        764,
+        1213
+      ],
+      "op": "JUMP",
+      "path": "14"
+    },
+    "952": {
+      "fn": "Ownable._setOwner",
+      "offset": [
+        2041,
+        2210
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "953": {
+      "fn": "Ownable._setOwner",
+      "offset": [
+        2096,
+        2112
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x0"
+    },
+    "955": {
+      "fn": "Ownable._setOwner",
+      "offset": [
+        2115,
+        2121
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "956": {
+      "fn": "Ownable._setOwner",
+      "offset": [
+        2115,
+        2121
+      ],
+      "op": "SLOAD",
+      "path": "2"
+    },
+    "957": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "959": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "961": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "963": {
+      "op": "SHL"
+    },
+    "964": {
+      "op": "SUB"
+    },
+    "965": {
+      "fn": "Ownable._setOwner",
+      "offset": [
+        2131,
+        2148
+      ],
+      "op": "DUP4",
+      "path": "2",
+      "statement": 14
+    },
+    "966": {
+      "fn": "Ownable._setOwner",
+      "offset": [
+        2131,
+        2148
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "967": {
+      "fn": "Ownable._setOwner",
+      "offset": [
+        2131,
+        2148
+      ],
+      "op": "AND",
+      "path": "2"
+    },
+    "968": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "970": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "972": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "974": {
+      "op": "SHL"
+    },
+    "975": {
+      "op": "SUB"
+    },
+    "976": {
+      "op": "NOT"
+    },
+    "977": {
+      "fn": "Ownable._setOwner",
+      "offset": [
+        2131,
+        2148
+      ],
+      "op": "DUP4",
+      "path": "2"
+    },
+    "978": {
+      "fn": "Ownable._setOwner",
+      "offset": [
+        2131,
+        2148
+      ],
+      "op": "AND",
+      "path": "2"
+    },
+    "979": {
+      "fn": "Ownable._setOwner",
+      "offset": [
+        2131,
+        2148
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "980": {
+      "fn": "Ownable._setOwner",
+      "offset": [
+        2131,
+        2148
+      ],
+      "op": "OR",
+      "path": "2"
+    },
+    "981": {
+      "fn": "Ownable._setOwner",
+      "offset": [
+        2131,
+        2148
+      ],
+      "op": "DUP5",
+      "path": "2"
+    },
+    "982": {
+      "fn": "Ownable._setOwner",
+      "offset": [
+        2131,
+        2148
+      ],
+      "op": "SSTORE",
+      "path": "2"
+    },
+    "983": {
+      "fn": "Ownable._setOwner",
+      "offset": [
+        2163,
+        2203
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "statement": 15,
+      "value": "0x40"
+    },
+    "985": {
+      "fn": "Ownable._setOwner",
+      "offset": [
+        2163,
+        2203
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "986": {
+      "fn": "Ownable._setOwner",
+      "offset": [
+        2115,
+        2121
+      ],
+      "op": "SWAP2",
+      "path": "2"
+    },
+    "987": {
+      "fn": "Ownable._setOwner",
+      "offset": [
+        2115,
+        2121
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "988": {
+      "fn": "Ownable._setOwner",
+      "offset": [
+        2115,
+        2121
+      ],
+      "op": "SWAP3",
+      "path": "2"
+    },
+    "989": {
+      "fn": "Ownable._setOwner",
+      "offset": [
+        2115,
+        2121
+      ],
+      "op": "AND",
+      "path": "2"
+    },
+    "990": {
+      "fn": "Ownable._setOwner",
+      "offset": [
+        2115,
+        2121
+      ],
+      "op": "SWAP3",
+      "path": "2"
+    },
+    "991": {
+      "fn": "Ownable._setOwner",
+      "offset": [
+        2115,
+        2121
+      ],
+      "op": "DUP4",
+      "path": "2"
+    },
+    "992": {
+      "fn": "Ownable._setOwner",
+      "offset": [
+        2115,
+        2121
+      ],
+      "op": "SWAP2",
+      "path": "2"
+    },
+    "993": {
+      "fn": "Ownable._setOwner",
+      "offset": [
+        2163,
+        2203
+      ],
+      "op": "PUSH32",
+      "path": "2",
+      "value": "0x8BE0079C531659141344CD1FD0A4F28419497F9722A3DAAFE3B4186F6B6457E0"
+    },
+    "1026": {
+      "fn": "Ownable._setOwner",
+      "offset": [
+        2163,
+        2203
+      ],
+      "op": "SWAP2",
+      "path": "2"
+    },
+    "1027": {
+      "fn": "Ownable._setOwner",
+      "offset": [
+        2096,
+        2112
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "1028": {
+      "fn": "Ownable._setOwner",
+      "offset": [
+        2163,
+        2203
+      ],
+      "op": "LOG3",
+      "path": "2"
+    },
+    "1029": {
+      "fn": "Ownable._setOwner",
+      "offset": [
+        2086,
+        2210
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "1030": {
+      "fn": "Ownable._setOwner",
+      "offset": [
+        2041,
+        2210
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "1031": {
+      "fn": "Ownable._setOwner",
+      "jump": "o",
+      "offset": [
+        2041,
+        2210
+      ],
+      "op": "JUMP",
+      "path": "2"
+    },
+    "1032": {
+      "op": "JUMPDEST"
+    },
+    "1033": {
+      "op": "DUP1"
+    },
+    "1034": {
+      "op": "CALLDATALOAD"
+    },
+    "1035": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "1037": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "1039": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "1041": {
+      "op": "SHL"
+    },
+    "1042": {
+      "op": "SUB"
+    },
+    "1043": {
+      "op": "DUP2"
+    },
+    "1044": {
+      "op": "AND"
+    },
+    "1045": {
+      "op": "DUP2"
+    },
+    "1046": {
+      "op": "EQ"
+    },
+    "1047": {
+      "op": "PUSH2",
+      "value": "0x41F"
+    },
+    "1050": {
+      "op": "JUMPI"
+    },
+    "1051": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "1053": {
+      "op": "DUP1"
+    },
+    "1054": {
+      "op": "REVERT"
+    },
+    "1055": {
+      "op": "JUMPDEST"
+    },
+    "1056": {
+      "op": "SWAP2"
+    },
+    "1057": {
+      "op": "SWAP1"
+    },
+    "1058": {
+      "op": "POP"
+    },
+    "1059": {
+      "jump": "o",
+      "op": "JUMP"
+    },
+    "1060": {
+      "op": "JUMPDEST"
+    },
+    "1061": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "1063": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "1065": {
+      "op": "DUP3"
+    },
+    "1066": {
+      "op": "DUP5"
+    },
+    "1067": {
+      "op": "SUB"
+    },
+    "1068": {
+      "op": "SLT"
+    },
+    "1069": {
+      "op": "ISZERO"
+    },
+    "1070": {
+      "op": "PUSH2",
+      "value": "0x436"
+    },
+    "1073": {
+      "op": "JUMPI"
+    },
+    "1074": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "1076": {
+      "op": "DUP1"
+    },
+    "1077": {
+      "op": "REVERT"
+    },
+    "1078": {
+      "op": "JUMPDEST"
+    },
+    "1079": {
+      "op": "PUSH2",
+      "value": "0x43F"
+    },
+    "1082": {
+      "op": "DUP3"
+    },
+    "1083": {
+      "op": "PUSH2",
+      "value": "0x408"
+    },
+    "1086": {
+      "jump": "i",
+      "op": "JUMP"
+    },
+    "1087": {
+      "op": "JUMPDEST"
+    },
+    "1088": {
+      "op": "SWAP4"
+    },
+    "1089": {
+      "op": "SWAP3"
+    },
+    "1090": {
+      "op": "POP"
+    },
+    "1091": {
+      "op": "POP"
+    },
+    "1092": {
+      "op": "POP"
+    },
+    "1093": {
+      "jump": "o",
+      "op": "JUMP"
+    },
+    "1094": {
+      "op": "JUMPDEST"
+    },
+    "1095": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "1097": {
+      "op": "DUP1"
+    },
+    "1098": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "1100": {
+      "op": "DUP1"
+    },
+    "1101": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "1103": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "1105": {
+      "op": "DUP7"
+    },
+    "1106": {
+      "op": "DUP9"
+    },
+    "1107": {
+      "op": "SUB"
+    },
+    "1108": {
+      "op": "SLT"
+    },
+    "1109": {
+      "op": "ISZERO"
+    },
+    "1110": {
+      "op": "PUSH2",
+      "value": "0x45E"
+    },
+    "1113": {
+      "op": "JUMPI"
+    },
+    "1114": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "1116": {
+      "op": "DUP1"
+    },
+    "1117": {
+      "op": "REVERT"
+    },
+    "1118": {
+      "op": "JUMPDEST"
+    },
+    "1119": {
+      "op": "DUP6"
+    },
+    "1120": {
+      "op": "CALLDATALOAD"
+    },
+    "1121": {
+      "op": "DUP1"
+    },
+    "1122": {
+      "op": "ISZERO"
+    },
+    "1123": {
+      "op": "ISZERO"
+    },
+    "1124": {
+      "op": "DUP2"
+    },
+    "1125": {
+      "op": "EQ"
+    },
+    "1126": {
+      "op": "PUSH2",
+      "value": "0x46E"
+    },
+    "1129": {
+      "op": "JUMPI"
+    },
+    "1130": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "1132": {
+      "op": "DUP1"
+    },
+    "1133": {
+      "op": "REVERT"
+    },
+    "1134": {
+      "op": "JUMPDEST"
+    },
+    "1135": {
+      "op": "SWAP5"
+    },
+    "1136": {
+      "op": "POP"
+    },
+    "1137": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "1139": {
+      "op": "DUP7"
+    },
+    "1140": {
+      "op": "ADD"
+    },
+    "1141": {
+      "op": "CALLDATALOAD"
+    },
+    "1142": {
+      "op": "SWAP4"
+    },
+    "1143": {
+      "op": "POP"
+    },
+    "1144": {
+      "op": "PUSH2",
+      "value": "0x483"
+    },
+    "1147": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "1149": {
+      "op": "DUP8"
+    },
+    "1150": {
+      "op": "ADD"
+    },
+    "1151": {
+      "op": "PUSH2",
+      "value": "0x408"
+    },
+    "1154": {
+      "jump": "i",
+      "op": "JUMP"
+    },
+    "1155": {
+      "op": "JUMPDEST"
+    },
+    "1156": {
+      "op": "SWAP3"
+    },
+    "1157": {
+      "op": "POP"
+    },
+    "1158": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "1160": {
+      "op": "DUP7"
+    },
+    "1161": {
+      "op": "ADD"
+    },
+    "1162": {
+      "op": "CALLDATALOAD"
+    },
+    "1163": {
+      "op": "SWAP2"
+    },
+    "1164": {
+      "op": "POP"
+    },
+    "1165": {
+      "op": "PUSH2",
+      "value": "0x498"
+    },
+    "1168": {
+      "op": "PUSH1",
+      "value": "0x80"
+    },
+    "1170": {
+      "op": "DUP8"
+    },
+    "1171": {
+      "op": "ADD"
+    },
+    "1172": {
+      "op": "PUSH2",
+      "value": "0x408"
+    },
+    "1175": {
+      "jump": "i",
+      "op": "JUMP"
+    },
+    "1176": {
+      "op": "JUMPDEST"
+    },
+    "1177": {
+      "op": "SWAP1"
+    },
+    "1178": {
+      "op": "POP"
+    },
+    "1179": {
+      "op": "SWAP3"
+    },
+    "1180": {
+      "op": "SWAP6"
+    },
+    "1181": {
+      "op": "POP"
+    },
+    "1182": {
+      "op": "SWAP3"
+    },
+    "1183": {
+      "op": "SWAP6"
+    },
+    "1184": {
+      "op": "SWAP1"
+    },
+    "1185": {
+      "op": "SWAP4"
+    },
+    "1186": {
+      "op": "POP"
+    },
+    "1187": {
+      "jump": "o",
+      "op": "JUMP"
+    },
+    "1188": {
+      "op": "JUMPDEST"
+    },
+    "1189": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "1191": {
+      "op": "DUP1"
+    },
+    "1192": {
+      "op": "DUP3"
+    },
+    "1193": {
+      "op": "MSTORE"
+    },
+    "1194": {
+      "op": "DUP2"
+    },
+    "1195": {
+      "op": "DUP2"
+    },
+    "1196": {
+      "op": "ADD"
+    },
+    "1197": {
+      "op": "MSTORE"
+    },
+    "1198": {
+      "op": "PUSH32",
+      "value": "0x4F776E61626C653A2063616C6C6572206973206E6F7420746865206F776E6572"
+    },
+    "1231": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "1233": {
+      "op": "DUP3"
+    },
+    "1234": {
+      "op": "ADD"
+    },
+    "1235": {
+      "op": "MSTORE"
+    },
+    "1236": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "1238": {
+      "op": "ADD"
+    },
+    "1239": {
+      "op": "SWAP1"
+    },
+    "1240": {
+      "jump": "o",
+      "op": "JUMP"
+    },
+    "1241": {
+      "op": "JUMPDEST"
+    },
+    "1242": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "1244": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "1246": {
+      "op": "NOT"
+    },
+    "1247": {
+      "op": "DUP3"
+    },
+    "1248": {
+      "op": "EQ"
+    },
+    "1249": {
+      "op": "ISZERO"
+    },
+    "1250": {
+      "op": "PUSH2",
+      "value": "0x4FB"
+    },
+    "1253": {
+      "op": "JUMPI"
+    },
+    "1254": {
+      "op": "PUSH4",
+      "value": "0x4E487B71"
+    },
+    "1259": {
+      "op": "PUSH1",
+      "value": "0xE0"
+    },
+    "1261": {
+      "op": "SHL"
+    },
+    "1262": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "1264": {
+      "op": "MSTORE"
+    },
+    "1265": {
+      "op": "PUSH1",
+      "value": "0x11"
+    },
+    "1267": {
+      "op": "PUSH1",
+      "value": "0x4"
+    },
+    "1269": {
+      "op": "MSTORE"
+    },
+    "1270": {
+      "op": "PUSH1",
+      "value": "0x24"
+    },
+    "1272": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "1274": {
+      "op": "REVERT"
+    },
+    "1275": {
+      "op": "JUMPDEST"
+    },
+    "1276": {
+      "op": "POP"
+    },
+    "1277": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "1279": {
+      "op": "ADD"
+    },
+    "1280": {
+      "op": "SWAP1"
+    },
+    "1281": {
+      "jump": "o",
+      "op": "JUMP"
+    },
+    "1282": {
+      "op": "JUMPDEST"
+    },
+    "1283": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "1285": {
+      "op": "DUP3"
+    },
+    "1286": {
+      "op": "PUSH2",
+      "value": "0x51F"
+    },
+    "1289": {
+      "op": "JUMPI"
+    },
+    "1290": {
+      "op": "PUSH4",
+      "value": "0x4E487B71"
+    },
+    "1295": {
+      "op": "PUSH1",
+      "value": "0xE0"
+    },
+    "1297": {
+      "op": "SHL"
+    },
+    "1298": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "1300": {
+      "op": "MSTORE"
+    },
+    "1301": {
+      "op": "PUSH1",
+      "value": "0x12"
+    },
+    "1303": {
+      "op": "PUSH1",
+      "value": "0x4"
+    },
+    "1305": {
+      "op": "MSTORE"
+    },
+    "1306": {
+      "op": "PUSH1",
+      "value": "0x24"
+    },
+    "1308": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "1310": {
+      "op": "REVERT"
+    },
+    "1311": {
+      "op": "JUMPDEST"
+    },
+    "1312": {
+      "op": "POP"
+    },
+    "1313": {
+      "op": "MOD"
+    },
+    "1314": {
+      "op": "SWAP1"
+    },
+    "1315": {
+      "jump": "o",
+      "op": "JUMP"
+    }
+  },
+  "sha1": "e2080b8864476a1458c3b14cefb3569ce2b348bd",
+  "source": "pragma solidity ^0.8.0;\n\nimport \"OpenZeppelin/openzeppelin-contracts@4.3.0/contracts/access/Ownable.sol\";\nimport \"./CallerInterface.sol\";\n\ncontract KYCOracle is Ownable {\n    uint private randNonce = 0;\n    uint private modulus = 1000;\n    mapping(uint256=>bool) pendingRequests;\n    \n    event GetKYCEvent(address callerAddress, uint id, address customer);\n    event SetKYCEvent(bool isKYC, address callerAddress, address customer, uint256 customerId);\n\n    function getKYC(address _customer) public returns (uint256) {\n        randNonce++;\n        uint id = uint(keccak256(abi.encodePacked(block.timestamp ,msg.sender,randNonce))) % modulus; \n        pendingRequests[id] = true;\n        emit GetKYCEvent(msg.sender, id, _customer);\n        return id;\n    }\n\n    function setKYC(bool _isKYC, uint256 _customerId, address _callerAddress, uint256 _id, address _customer) public onlyOwner {\n        require(pendingRequests[_id]);\n        delete pendingRequests[_id];\n        CallerInterface callerInstance;\n        callerInstance = CallerInterface(_callerAddress);\n        callerInstance.callback(_customerId, _isKYC, _customer,  _id);\n        emit SetKYCEvent(_isKYC, _callerAddress, _customer, _customerId);\n    }\n}",
+  "sourceMap": "139:1076:14:-:0;;;200:1;175:26;;230:4;207:27;;139:1076;;;;;;;;;-1:-1:-1;867:23:2;666:10:4;867:9:2;:23::i;:::-;139:1076:14;;2041:169:2;2096:16;2115:6;;-1:-1:-1;;;;;2131:17:2;;;-1:-1:-1;;;;;;2131:17:2;;;;;;2163:40;;2115:6;;;;;;;2163:40;;2096:16;2163:40;2086:124;2041:169;:::o;139:1076:14:-;;;;;;;",
+  "sourcePath": "contracts/Oracle.sol",
+  "type": "contract"
+}
