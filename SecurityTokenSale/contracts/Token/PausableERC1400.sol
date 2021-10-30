@@ -2,7 +2,7 @@ pragma solidity ^0.8.0;
 
 import "./ERC1400.sol";
 import "OpenZeppelin/openzeppelin-contracts@4.3.0/contracts/security/Pausable.sol";
-import "./SellerRole.sol";
+import "../Access/SellerRole.sol";
 
 contract PausableERC1400 is ERC1400, Pausable, SellerRole {
     

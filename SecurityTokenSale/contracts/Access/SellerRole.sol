@@ -1,6 +1,6 @@
 pragma solidity ^0.8.0;
 
-import "OpenZeppelin/openzeppelin-contracts@4.3.0/contracts/access/AccessControl.sol";
+import "./AccessControl.sol";
 
 contract SellerRole is AccessControl {
 
@@ -36,7 +36,7 @@ contract SellerRole is AccessControl {
     }
 
     function _addSeller(address account) internal {
-        grantRole(SELLER_ROLE, account);
+        _grantRole(SELLER_ROLE, account);
         emit SellerAdded(account);
     }
 

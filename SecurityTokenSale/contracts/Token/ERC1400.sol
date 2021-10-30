@@ -3,9 +3,9 @@ pragma solidity ^0.8.0;
 import "OpenZeppelin/openzeppelin-contracts@4.3.0/contracts/token/ERC20/IERC20.sol";
 import "OpenZeppelin/openzeppelin-contracts@4.3.0/contracts/utils/math/SafeMath.sol";
 import "OpenZeppelin/openzeppelin-contracts@4.3.0/contracts/access/Ownable.sol";
-import "./MinterRole.sol";
+import "../Access/MinterRole.sol";
 import "./IERC1400.sol";
-import "./CallerInterface.sol";
+import "../Oracle/CallerInterface.sol";
 
 contract ERC1400 is IERC20, IERC1400, Ownable, MinterRole {
   using SafeMath for uint256;
@@ -158,7 +158,7 @@ contract ERC1400 is IERC20, IERC1400, Ownable, MinterRole {
     bytes32[] memory defaultPartitions,
     address _whitelist
   
-  )
+  ) 
   {
     _name = name_;
     _symbol = symbol_;

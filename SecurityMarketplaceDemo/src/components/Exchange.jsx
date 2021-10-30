@@ -236,7 +236,7 @@ class Exchange extends Component {
                 <div style={{textAlign:'left'}}>
                 <br/>
                 <br/> 
-                <b><u>Swap CO-HAMM (Buy BSIS)</u></b>
+                <b><u>Swap CO-HAMM (Buy CO)</u></b>
                <br/>
                <form onSubmit={this.buyBSIS} id="buyBSI">
                     <label>Amount</label><br/>

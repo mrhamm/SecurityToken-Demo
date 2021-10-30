@@ -1,6 +1,6 @@
 pragma solidity ^0.8.0;
 
-import "OpenZeppelin/openzeppelin-contracts@4.3.0/contracts/access/AccessControl.sol";
+import "./AccessControl.sol";
 
 contract MinterRole is AccessControl {
 
@@ -36,7 +36,7 @@ contract MinterRole is AccessControl {
     }
 
     function _addMinter(address account) internal {
-        grantRole(MINTER_ROLE, account);
+        _grantRole(MINTER_ROLE, account);
         emit MinterAdded(account);
     }
 

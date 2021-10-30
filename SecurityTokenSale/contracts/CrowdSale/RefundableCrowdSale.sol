@@ -28,7 +28,7 @@ constructor(uint256 _startTime, uint256 _endTime, uint256 _rate, address _wallet
     require(isFinalized);
     require(!goalReached());
 
-    vault.refund(msg.sender);
+    vault.withdraw(payable(msg.sender));
   }
 
   /**
@@ -60,7 +60,7 @@ constructor(uint256 _startTime, uint256 _endTime, uint256 _rate, address _wallet
   }
 
   function getTotal() external view returns (uint256) {
-      return vault._getTotal(msg.sender); 
+      return vault.depositsOf(msg.sender); 
   }
   
 }

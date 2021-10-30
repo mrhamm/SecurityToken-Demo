@@ -2,7 +2,7 @@ pragma solidity ^0.8.0;
 
 import "./CrowdSale.sol";
 import "OpenZeppelin/openzeppelin-contracts@4.3.0/contracts/access/Ownable.sol";
-import "./PauseInterface.sol";
+import "../Token/PauseInterface.sol";
 contract FinalizableCrowdSale is CrowdSale, Ownable {
     IPausable pauser; 
     constructor(uint256 _startTime, uint256 _endTime, uint256 _rate, address _wallet, address tokenAddress) 

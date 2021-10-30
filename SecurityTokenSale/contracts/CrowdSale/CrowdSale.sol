@@ -1,8 +1,8 @@
 pragma solidity ^0.8.0;
 
-import "./PausableERC1400.sol";
+import "../Token/PausableERC1400.sol";
 import "OpenZeppelin/openzeppelin-contracts@4.3.0/contracts/utils/math/SafeMath.sol";
-import "./IERC1400.sol";
+import "../Token/IERC1400.sol";
 
 contract CrowdSale  {
     using SafeMath for uint256;
